@@ -4,7 +4,7 @@ $("#transfer-student").on('submit',function(e){
   e.preventDefault();
   $.ajax({
     method:'post',
-    url:base_url+'student/transfer',
+    url:base_url+'settings/student/transfer',
     data:new FormData(this),
     dataType:'json',
     contentType: false,       // The content type used when sending data to the server.
@@ -58,7 +58,7 @@ $(document).on('click', '.delete-student', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'student/delete',
+          url: base_url+'settings/student/delete',
           data:{id:id,classid:classid},
           dataType:'json',
           success: function(res){
@@ -161,7 +161,7 @@ $(document).on('click', "input[name='option']", function(e){
   
   $.ajax({
     type: "POST",
-    url: base_url+'student/options',
+    url: base_url+'settings/student/options',
     data:{class_id:class_id,index:index,value:value},
     dataType:'json',
     success: function(data){}
@@ -194,7 +194,7 @@ $(document).on('change', "[name='standart_class']", function(e){
   var class_id = $("[name='standart_class']").val();
   $.ajax({
     type: "POST",
-    url: base_url+'classes/options',
+    url: base_url+'settings/classes/options',
     data:{class_id:class_id},
     success: function(res){
       $("#option-panel").html(res);

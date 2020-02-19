@@ -38,7 +38,6 @@ require dirname(__FILE__).'/Base.php';
  **/
 class MX_Controller 
 {
-	
 	public $autoload = array();
 	
 	public function __construct() 

@@ -1,22 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Classes extends SU_Controller {
+class Classes extends MY_Controller {
 
     public function __construct()
     {
         parent::__construct();
         $this->title = "Manage Classes";
         $this->scripts = array("class");
+     
         $this->logged_in_user = get_user_id();
         $this->logged_in_teacher_id = get_teacher_id();
 
+    
     }
 
 
     public function index()
     {    
-       
+
         $membership = get_user_membership();
         $data['classLimit'] = $membership;
 
@@ -25,7 +27,7 @@ class Classes extends SU_Controller {
 
         $class_where['array_teachers'] = $this->logged_in_teacher_id;
         $data['classes'] = $this->crud_model->get('class',$class_where);
-
+      
         $this->load->view('manage-classes',$data);
     }
 
@@ -33,7 +35,7 @@ class Classes extends SU_Controller {
 
     public function manage()
     {
-
+       
         $membership = get_user_membership();
         $class_where['array_teachers'] = $this->logged_in_teacher_id;
         $classes = $this->crud_model->get('class',$class_where);
@@ -44,7 +46,7 @@ class Classes extends SU_Controller {
             $response['status'] = false;
             $response['msg'] = $msg;
             $this->session->set_flashdata('error',$msg);
-            redirect('classes');
+            redirect('settings/classes');
         }
 
         //insert in class collection
@@ -93,7 +95,7 @@ class Classes extends SU_Controller {
             $this->session->set_flashdata('error',$msg);
         }
         
-        redirect('classes');
+        redirect('settings/classes');
 
     }
 
@@ -279,7 +281,7 @@ class Classes extends SU_Controller {
                 $response['msg'] = $msg;
                 $this->session->set_flashdata('error',$msg);
             }
-            redirect('classes');
+            redirect('settings/classes');
         }
     }
 
@@ -383,7 +385,7 @@ class Classes extends SU_Controller {
             $this->session->set_flashdata('error',$msg);
         }
 
-        $redirect_url = "classes/settings/".$this->input->post('id');
+        $redirect_url = "settings/classes/settings/".$this->input->post('id');
         redirect($redirect_url);
 
        

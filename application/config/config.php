@@ -23,8 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
 
+if ($_SERVER['HTTP_HOST'] == 'localhost') {
+	$config['base_url'] =	$protocol.$_SERVER['HTTP_HOST'].'/ursin/';
+}else{
+	$config['base_url'] =	'https://edtools.io/settings/';
+};
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -100,7 +105,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -385,6 +390,7 @@ $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
 
+
 /*
 |--------------------------------------------------------------------------
 | Cookie Related Variables
@@ -455,6 +461,7 @@ $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
 
+
 /*
 |--------------------------------------------------------------------------
 | Output Compression
@@ -521,3 +528,26 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+
+$config['mongo_db']['default'] = [
+    'settings' => [
+        'auth'             => TRUE, 
+        'debug'            => TRUE,
+        'return_as'        => 'array',
+        'auto_reset_query' => TRUE
+    ],
+
+    'connection_string' => 'mongodb://ursin-user:<svlIlgpZnpx4J7eH>@ursin-shard-00-00-vl750.mongodb.net:27017,ursin-shard-00-01-vl750.mongodb.net:27017,ursin-shard-00-02-vl750.mongodb.net:27017/test?ssl=true&replicaSet=ursin-shard-0&authSource=admin&retryWrites=true&w=majority',
+
+    'connection' => [
+        'host'          => '',
+        'port'          => '',
+        'user_name'     => '',
+        'user_password' => '',
+        'db_name'       => '',
+        'db_options'    => []
+    ],
+
+    'driver' => []
+];

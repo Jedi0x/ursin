@@ -155,7 +155,7 @@ class MX_Loader extends CI_Loader
 			
 		if ($path === FALSE) {
 			
-			$this->_ci_load_class($library, $params, $object_name);
+			$this->_ci_load_library($library, $params, $object_name);
 			$_alias = $this->_ci_classes[$class];
 			
 		} else {		
@@ -168,7 +168,7 @@ class MX_Loader extends CI_Loader
 			$this->_ci_classes[$class] = $_alias;
 		}
 		
-		return CI::$APP->$_alias;
+		//return CI::$APP->$_alias;
     }
 
 	/** Load an array of libraries **/
