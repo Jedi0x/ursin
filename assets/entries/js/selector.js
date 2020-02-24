@@ -31,6 +31,22 @@ var x, i, j, selElmnt, a, b, c;
                   y[k].removeAttribute("class");
                 }
                 this.setAttribute("class", "same-as-selected");
+                   var clsid = document.getElementById("clasid").value;
+                   $.ajax({
+                    method:'post',
+                    url: base_url+'entries/messages/get_messages_data',
+                    data:{class_id:clsid},
+                    dataType:'json',
+                    success:function(res){
+                      if(res.status){
+                        
+                        $('#messagebox').html(res.data);
+                      }else{
+                         
+                      }
+                     
+                    }
+                  });
                 break;
               }
             }
@@ -44,6 +60,7 @@ var x, i, j, selElmnt, a, b, c;
         and open/close the current select box: */
         e.stopPropagation();
         closeAllSelect(this);
+
         this.nextSibling.classList.toggle("select-hide");
         this.classList.toggle("select-arrow-active");
       });
@@ -67,8 +84,9 @@ var x, i, j, selElmnt, a, b, c;
           x[i].classList.add("select-hide");
         }
       }
-    }
 
+    }
+  
     /* If the user clicks anywhere outside the select box,
     then close all select boxes: */
     document.addEventListener("click", closeAllSelect);

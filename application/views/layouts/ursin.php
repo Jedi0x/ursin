@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/entries/css/mesg-style.css">
 
 
+
   {styles}
 
   
@@ -33,6 +34,7 @@
   <script type="text/javascript" src="assets/components/toastr/toastr.min.js"></script>
   <script type="text/javascript" src="assets/components/jquery-confirm/jquery-confirm.min.js"></script>
   <script type="text/javascript" src="assets/components/tooltipify/lib/jquery-tooltipify.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/entries/js/messages.js"></script>
   <script type="text/javascript">
         
         function toasterOptions() {

@@ -62,6 +62,20 @@ class PhpMailerLib
         return $res;
     }
 
+    public function message_email_all_parent($mails,$body)
+    {
+        $this->mail->setFrom($this->mail->Username, 'EdTools');
+        foreach ($mails as $key => $mail) {
+           $this->mail->addAddress($mail); 
+        }
+        $this->mail->isHTML(true);                                  
+        $this->mail->Subject = 'EdTools Parent Code Dear Parents';
+        $this->mail->Body    = $body;
+        $email = $this->mail->send();
+        $res = array('res'=>$email,'data'=>$this->mail);
+        return $res;
+    }
+
 
     
 

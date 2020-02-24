@@ -54,7 +54,7 @@
   } ?>
   <section class="input-section">
     <div class="container">
-      <form action="<?php echo base_url('student/family_emails'); ?>" method = "POST">
+      <form action="<?php echo base_url('settings/student/family_emails'); ?>" method = "POST">
         <table>
         <tr>
           <td><input class="in" type="email" name="family" placeholder="Family email address" value="<?=$familyEmail?>"><i class="fas fa-gender"></i></td>

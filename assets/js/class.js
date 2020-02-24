@@ -1,4 +1,5 @@
 
+
 $("#class-shortcut").on('submit',function(e){
   e.preventDefault();
   $.ajax({

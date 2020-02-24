@@ -46,7 +46,7 @@
     <div class="container">
       <h3>1) Give this class-code to the other teacher: <span><?php echo $class[0]['classcode']; ?></span></h3>
       <h3>2) ... and enter the code you were given by the other teacher:</h3>
-      <form method="POST" action="<?php echo base_url('classes/connect_class'); ?>">
+      <form method="POST" action="<?php echo base_url('settings/classes/connect_class'); ?>">
         <table>
           <tr>
             <td><input class="in" type="text" name="code" placeholder="Enter code given by the other teacher"></td>

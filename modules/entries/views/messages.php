@@ -29,13 +29,13 @@
       </div>
     </div>
   </header>
-
+<?php if(!isset($showbanner)){ ?>
 <form action="<?php echo base_url('entries/Messages/manage'); ?>" method="POST">
     <section class="class-selection message-select">
       <div class="container">
         <div class="custom-select">
-          <select name="class_id" id="clss_id" >
-            <option value="" >Select Class</option>
+          <select name="class_id" id="clasid">
+            <option value="" selected="">Select Class</option>
               <?php foreach ($classes as $class) { ?>
                   <option value="<?=$class['_id']?>"><?=$class['class_name']?></option>
               <?php } ?>
@@ -55,15 +55,22 @@
           <input id="datepicker" onfocus="(this.type='date')" name="date" class="js-form-control" placeholder="Optional expiration date" required>
           <label for="message">Message</label>
           <textarea name="message" id="message" cols="30" maxlength="800" rows="6" placeholder="Write your message" required></textarea>
+            <p><input type="radio" id="recipient_identifier1" onclick="showmailcheckbox(this.value)" name="recipient_identifier" value="0" style="width: 15px;">  Publish to all my classes</p>
+            <p><input type="radio" id="recipient_identifier1" onclick="showmailcheckbox(this.value)" name="recipient_identifier" value="2" style="width: 15px;">  Visible for parents only</p>
+          <!--   <p><input type="radio" id="male" name="gender" value="male" style="width: 15px;">  Mail notification to all parents</p> -->
 
-          <input type="checkbox" id="check" name="recipient_identifier" value="0">
-          <label id="check-text" for="check">Publish to all my classes</label><br/>
+         
+          
 
-          <input type="checkbox" id="check" name="recipient_identifier" value="1">
-          <label id="check-text" for="check">Visible for parents only</label><br/>
+          <!-- <input type="radio" id="check" name="recipient_identifier" value="0">
+          <label id="check-text" for="check">Publish to all my classes</label> -->
 
-          <input type="checkbox" id="check" name="recipient_identifier" value="2">
-          <label id="check-text" for="check">Mail notification to all parents</label>
+          <!-- <input type="radio" id="check" name="recipient_identifier" value="1">
+          <label id="check-text" for="check">Visible for parents only</label>-->
+          <div style="margin-left: 30px; display: none;" id="idofmailcheckbox">
+            <input type="checkbox" id="check" name="emailsendofall" value="mail">
+            <label id="check-text" for="check">Mail notification to all parents</label> 
+          </div>
 
           <button type="submit" id="send">Send</button>
         <?php }else{ ?>
@@ -73,44 +80,38 @@
       </div>
     </section>
 </form>
-  <section class="bottom-area message-cont">
+  <section class="bottom-area message-cont" id="messagebox">
     <div class="container">
-      <h1>Message for Class 4</h1>
+     
       <nav>
         <ul>
-          <?php foreach ($messagesdata as $key => $value) {?>
-            
-            
           
-          <li>
-            <div class="message">
-              <div class="container">
-                <table>
-                  <tr>
-                    <td>Reminder</td>
-                    <td></td>
-                    <td><?php echo $value['date']; ?></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="3" ><?php echo $value['message']; ?></td>
-                    <td><a class="delete" href="#">&#10007;</a></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </li>
+          <?php if(isset($messagesdata)){ foreach (uksort($messagesdata) as $key => $value) {?>
+            
+        
          
-          <?php } ?>
+          <?php } }?>
         </ul>
       </nav>
     </div>
   </section>
+<?php }else{?>
+   <section >
+    <div class="alert alert-primary" role="alert">
+      Messages are not shown for this class in the students dashboard. Please activate it in the settings <a href="<?php echo base_url() ?>/settings/student/student/<?php echo base_url() ?>"> click here</a>. 
+    </div>
+   </section>
+<?php } ?>
   <footer class="footer-area message-footer">
     <div class="container">
       <p>Keep your messages up to date and relevant at all times. Therefore, the number of messages is limited to 5 (gold) or 20 (diamond). Here you can update subscriptions.</p>
     </div>
   </footer>
-  
+  <script type="text/javascript">
+
+      
+
+  </script>
+
 <script src="<?php echo base_url(); ?>assets/entries/js/selector.js"></script>
-  <script src="<?php echo base_url(); ?>assets/entries/js/typewriter.js"></script>
+<script src="<?php echo base_url(); ?>assets/entries/js/typewriter.js"></script>
