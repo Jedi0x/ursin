@@ -113,5 +113,3 @@
 
   </script>
 
-<script src="<?php echo base_url(); ?>assets/entries/js/selector.js"></script>
-<script src="<?php echo base_url(); ?>assets/entries/js/typewriter.js"></script>

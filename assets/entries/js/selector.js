@@ -86,7 +86,7 @@ var x, i, j, selElmnt, a, b, c;
       }
 
     }
-  
+    closeAllSelect();
     /* If the user clicks anywhere outside the select box,
     then close all select boxes: */
     document.addEventListener("click", closeAllSelect);

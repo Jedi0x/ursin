@@ -9,6 +9,7 @@ class Welcome extends MX_Controller {
          $this->title = "Manage Classes";
         $this->scripts = array("class");
         $this->logged_in_user = get_user_id();
+        $this->layout = 'settings/views/layouts/ursin';
     }
 
     public function index()

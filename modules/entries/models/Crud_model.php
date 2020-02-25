@@ -120,7 +120,6 @@ class Crud_model extends CI_Model{
 
 	public function push_new($collection,$where,$pushColumn,$pushData)
 	{	
-	
 		$update = $this->mongo_db2->pushAll($pushColumn,$pushData,['sort' => 'ASC'])->where('_id',$where)->update($collection);
 		return $update;
 	}
@@ -276,6 +275,11 @@ class Crud_model extends CI_Model{
 			return false;
 		}
 
+	}
+
+	public function delete_indexof_messages($collection,$where,$pullColumn,$index){
+
+		$update = $this->mongo_db2->pullAll($pullColumn,[$index])->where('_id',$where)->update($collection);
 	}
 
 

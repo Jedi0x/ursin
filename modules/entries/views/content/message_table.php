@@ -32,7 +32,7 @@
                     <td colspan="3" ><?php echo $value['message']; ?></td>
                     <td>
                       <?php if(!isset($value[0])){?>
-                         <button class="delete delete-message" data-id="<?php echo $idofclass; ?>" data-key="<?php echo $key ?>" >&#10007;</button>
+                         <button style="color:none;border: none; padding: 0" class="delete delete-message" data-id="<?php echo $idofclass; ?>" data-key="<?php echo $key ?>" >&#10007;</button>
                        <?php } ?>
                       </td>
                   </tr>

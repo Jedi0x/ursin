@@ -8,6 +8,7 @@ class Cron_job extends CI_Controller {
         parent::__construct();
         $this->title = "Cron Job";
         $this->layout = '';
+        $this->layout = 'settings/views/layouts/ursin';
         $this->logged_in_user = get_user_id();
     }
 

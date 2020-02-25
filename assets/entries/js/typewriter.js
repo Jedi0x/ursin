@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
           setTimeout(fnCallback, 700);
         }
       }
-      // start a typewriter animation for a text in the dataText array
+       // start a typewriter animation for a text in the dataText array
        function StartTextAnimation(i) {
           if (typeof dataText[i] == 'undefined') {
             setTimeout(function() {
@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
             }, 20000);
           }
           // check if dataText[i] exists
-          // if (i < dataText[i].length) {
+           if (i < dataText[i].length) {
           //   // text exists! start typewriter animation
-          //   typeWriter(dataText[i], 0, function() {
+             typeWriter(dataText[i], 0, function() {
           //     // after callback (and whole text has been animated), start next text
-          //     StartTextAnimation(i + 1);
-          //   });
-          // }
+               StartTextAnimation(i + 1);
+             });
+           }
       }
       // start the text animation
       StartTextAnimation(0);
-    });
+});

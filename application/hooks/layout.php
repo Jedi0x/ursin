@@ -16,14 +16,14 @@ class _Layout{
         global $OUT;
         $CI =& get_instance();
         $output = $CI->output->get_output();
-        $default = APPPATH.'views/layouts/default.php';
+        $default = APPPATH.'../modules/'.'views/layouts/default.php';
         $view = '';
         if(isset($CI->layout))
         {
             if(!preg_match('/(.+).php$/', $CI->layout)){
                 $CI->layout .= '.php';
             }
-            $requested = APPPATH.'views/layouts/'.$CI->layout;
+            $requested = APPPATH.'../modules/'.$CI->layout;
             if(file_exists($requested)){
                 $layout = $CI->load->file($requested, true);
                 $view = str_replace("{_title}", $output, $layout);
@@ -57,9 +57,9 @@ class _Layout{
                 $CI->layout .= '.php';
             }
 
-            $requested = APPPATH.'views/layouts/'.$CI->layout;
+            $requested = APPPATH.'../modules/'.$CI->layout;
 
-            $default = APPPATH.'views/layouts/default.php';
+            $default = APPPATH.'../modules/'.'views/layouts/default.php';
 
             if (file_exists($requested)) {
                 $layout = $CI->load->file($requested, true);

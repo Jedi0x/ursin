@@ -9,6 +9,7 @@ class Student extends MY_Controller {
 		$this->title = 'Manage Students';
 		$this->scripts = array('student');
 		$this->logged_in_user = get_user_id();
+		$this->layout = 'settings/views/layouts/ursin';
 		$this->logged_in_teacher_id = get_teacher_id();
 
 	}

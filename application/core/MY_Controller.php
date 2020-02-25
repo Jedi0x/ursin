@@ -5,7 +5,7 @@ class MY_Controller extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 
-		$this->layout = 'ursin';
+	
 		
 		if(file_exists(FCPATH.'user/library/Am/Lite.php')){
 

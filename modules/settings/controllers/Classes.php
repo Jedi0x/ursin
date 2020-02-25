@@ -8,7 +8,8 @@ class Classes extends MY_Controller {
         parent::__construct();
         $this->title = "Manage Classes";
         $this->scripts = array("class");
-     
+        
+        $this->layout = 'settings/views/layouts/ursin';
         $this->logged_in_user = get_user_id();
         $this->logged_in_teacher_id = get_teacher_id();
 
@@ -396,7 +397,7 @@ class Classes extends MY_Controller {
     {
         
         //debug($_POST,true);
-        // remove in connected class
+        //remove in connected class
         $classes = $this->crud_model->get('class');
         foreach ($classes as $c => $class) {
             $update = $this->crud_model->pull_new('class',new MongoDB\BSON\ObjectID($class['_id']),'connectedclass',$_POST['id']);
