@@ -5,7 +5,6 @@ class MY_Controller extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 
-	
 		
 		if(file_exists(FCPATH.'user/library/Am/Lite.php')){
 
@@ -76,6 +75,7 @@ class MY_Controller extends CI_Controller{
 
 			$where['teacher_id'] = 10;
 			$check = $this->crud_model->get('teacher',$where);
+			
 			if(!empty($check)){
 				$data['last_login'] = date("Y-m-d");
 				$this->crud_model->update("teacher",$where,$data);

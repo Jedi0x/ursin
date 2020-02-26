@@ -140,6 +140,7 @@ class Crud_model extends CI_Model{
 
 	public function get($collection,$where='',$select="",$where_in="",$like='',$order_by='',$order='DESC',$limit='')
 	{	
+		
 		try {
 		if(!empty($select))
 			$this->mongo_db2->select($select);

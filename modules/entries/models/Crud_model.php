@@ -140,6 +140,7 @@ class Crud_model extends CI_Model{
 
 	public function get($collection,$where='',$select="",$where_in="",$like='',$order_by='',$order='DESC',$limit='')
 	{	
+		
 		try {
 		if(!empty($select))
 			$this->mongo_db2->select($select);
@@ -277,7 +278,7 @@ class Crud_model extends CI_Model{
 
 	}
 
-	public function delete_indexof_messages($collection,$where,$pullColumn,$index){
+	 public function delete_indexof_messages($collection,$where,$pullColumn,$index){
 
 		$update = $this->mongo_db2->pullAll($pullColumn,[$index])->where('_id',$where)->update($collection);
 	}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exams</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main-style.css">
+  <link rel="stylesheet" href="css/exm-style.css">
+</head>
+
+<body>
+  <header class="header-area exam-header">
+    <div class="container">
+      <div class="logo-area">
+        <a href="https://edtools.io/apps/"><img src="images/logo.png" alt="Logo"></a>
+      </div>
+      <div class="menu-area">
+        <nav>
+          <ul>
+            <li id="wh-item"><a href="homework.html">Homework</a></li>
+            <li id="ex-item"><a id="exm-active" href="exams.html">Exams</a></li>
+            <li id="ms-item"><a href="messages.html">Messages</a></li>
+            <li id="lk-item"><a href="links.html">Links</a></li>
+            <li id="cl-item"><a href="calender.html">Calender</a></li>
+            
+            <li class="drp-itm" id="mr-item"><a href="">More<i class="fas fa-angle-down"></i></a>
+              <ul>
+                <li><a href="#">Open Task</a></li>
+                <li><a href="#">Checklist</a></li>
+                <li><a href="#">Settings</a></li>
+              </ul>
+            </li>
+            <li id="ques-mark"><a class="ques-mark" href="#"><img src="images/question.png" alt=""></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <section class="class-selection exam-select">
+    <div class="container">
+      <div class="custom-select">
+        <select name="" id="">
+          <option value="">Select Class</option>
+          <option value="">Class 4</option>
+          <option value="">Class 3</option>
+          <option value="">Class 2</option>
+        </select>
+      </div>
+    </div>
+  </section>
+  <section class="form-area exam-form">
+
+    <div class="container">
+      <h1 class="typer">Announce an exam</h1>
+      <form action="">
+        <label for="title">Subject</label>
+        <input type="text" id="title" placeholder="Enter subject name" required="required">
+        <label for="date">Date</label>
+        <input id="datepicker" onfocus="(this.type='date')" class="js-form-control" placeholder="Enter date" required="required">
+        <label for="message">Description</label>
+        <textarea name="" id="message" cols="30" rows="6" placeholder="Please describe" required="required"></textarea>
+        <button id="send">Send</button>
+      </form>
+    </div>
+  </section>
+  <section class="bottom-area exam-bottom">
+    <div class="container">
+      <h1>Exam in Class 4</h1>
+      <nav>
+        <ul>
+          <li>
+            <div class="message">
+              <table>
+                <tr>
+                  <td>2019/04/30</td>
+                  <td>English</td>
+                  <td>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum eos aliquam vel. Magni tempore in, nam impedit expedita rem ullam aut minima.
+                  </td>
+                  <td>
+                    <a class="delete" href="#">&#10007;</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2019/04/25</td>
+                  <td>Math</td>
+                  <td>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum eos aliquam vel. Magni tempore in, nam impedit expedita rem ullam aut minima.
+                  </td>
+                  <td>
+                    <a class="delete" href="#">&#10007;</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <footer class="footer-area exam-footer">
+    <div class="container">
+      <p>The dates of exams are automatically deleted after the due date.</p>
+    </div>
+  </footer>
+  <script src="js/selector.js"></script>
+  <script src="js/typewriter.js"></script>
+</body></html>

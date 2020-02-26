@@ -20,12 +20,9 @@ class Messages extends MY_Controller{
         $data['classes'] = $this->crud_model->get('class',$class_where);
 
    		if($data['classes'][0]['show_tools'][1] == 1){
-
-        $class_where['array_teachers'] = $this->logged_in_teacher_id;
-        $totalcount = $this->crud_model->get('class',$class_where);
         
         $totalsum = 0;
-        foreach ($totalcount as $key => $value) {
+        foreach ($data['classes'] as $key => $value) {
         	if(!isset($value['allclasmessae'])){
        			$totalsum += count($value['messages4class']);
        		}
@@ -181,7 +178,7 @@ class Messages extends MY_Controller{
         
     	$delete =  $this->crud_model->pull_new('class',new MongoDB\BSON\ObjectID($_POST['id']),'messages4class',json_encode($deletearray));
     	if($delete){
-            $msg = 'Messsage Deleted Successfully';
+            $msg = 'Messsage Successfully Deleted';
             $response['status'] = true;
             $response['msg'] = $msg;
             $this->session->set_flashdata('success',$msg);
