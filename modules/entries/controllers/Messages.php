@@ -7,7 +7,7 @@ class Messages extends MY_Controller{
 		$this->title = "Messages";
         $this->scripts = array("class");	
      	
-       $this->layout = 'entries/views/layouts/ursin';
+       $this->layout = 'entries/views/layouts/ursin_messages';
         $this->logged_in_user = get_user_id();
         $this->logged_in_teacher_id = get_teacher_id();
 
@@ -176,7 +176,7 @@ class Messages extends MY_Controller{
     {
         $deletearray[0] = array();
         
-    	$delete =  $this->crud_model->pull_new('class',new MongoDB\BSON\ObjectID($_POST['id']),'messages4class',json_encode($deletearray));
+    	$delete =  $this->crud_model->delete_indexof_array('class',new MongoDB\BSON\ObjectID($_POST['id']),'messages4class',$_POST['key']);
     	if($delete){
             $msg = 'Messsage Successfully Deleted';
             $response['status'] = true;

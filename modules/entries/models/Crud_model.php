@@ -278,11 +278,15 @@ class Crud_model extends CI_Model{
 
 	}
 
-	 public function delete_indexof_messages($collection,$where,$pullColumn,$index){
-
-		$update = $this->mongo_db2->pullAll($pullColumn,[$index])->where('_id',$where)->update($collection);
-	}
-
+	 public function delete_indexof_array($collection,$where,$pullColumn,$index){
+	 		
+			$this->mongo_db2->where($where);
+			$this->mongo_db2->unset($pullColumn.'.'.$index);
+			$update = $this->mongo_db2->update($collection);
+			
+			return $update;
+			
+	 }
 
 
 

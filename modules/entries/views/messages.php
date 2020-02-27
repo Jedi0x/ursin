@@ -8,11 +8,12 @@
       <div class="menu-area">
         <nav>
           <ul>
-            <li id="wh-item"><a href="homework.html">Homework</a></li>
-            <li id="ex-item"><a href="<?php echo base_url('exams/exams'); ?>">Exams</a></li>
+            
+            <li><a href="<?php echo base_url('entries/homework'); ?>">Homework</a></li>
+            <li id="ex-item"><a href="<?php echo base_url('entries/exams'); ?>">Exams</a></li>
             <li id="ms-item"><a id="meg-active" href="<?php echo base_url('entries/messages'); ?>">Messages</a></li>
             <li id="lk-item"><a href="links.html">Links</a></li>
-            <li id="cl-item"><a href="calender.html">Calender</a></li>
+            <li id="cl-item"><a  href="<?php echo base_url('entries/calendar'); ?>">Calender</a></li>
 
         
             
