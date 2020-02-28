@@ -1,46 +1,24 @@
 <?php (defined('BASEPATH')) OR exit('No direct script access allowed');
 
-class Homework extends MY_Controller{
+class Showhomework extends MY_Controller{
 
 	function __construct(){
 		parent::__construct();
-		$this->title = "Exams";
+		$this->title = "Show Home Work";
         $this->scripts = array("class");	
      	
-       $this->layout = 'entries/views/layouts/ursin_homework';
+        $this->layout = 'entries/views/layouts/ursin_show_homework';
         $this->logged_in_user = get_user_id();
         $this->logged_in_teacher_id = get_teacher_id();
 
 	}
 
 	public function index(){
-       
-        $dataofallclass = $this->crud_model->get('class');
-        foreach ($dataofallclass as $key => $examdata) {
-            $class_id['_id'] = new MongoDB\BSON\ObjectID($examdata['_id']);
-            
-            if(!empty($examdata['homework4class'])){
-                foreach ($examdata['homework4class'] as $keyofexam => $value) {
 
-                        if(date('yy-m-d', strtotime("-5 days")) > $value['due_date'])
-                        {
-                          $delete =  $this->crud_model->delete_indexof_array('class',$class_id,'homework4class',$keyofexam);
-                        }
-               }
-            }
-        } 
-       
         $class_where['array_teachers'] = $this->logged_in_teacher_id;
         $data['classes'] = $this->crud_model->get('class',$class_where);
-        if($data['classes'][0]['show_tools'][4] == 1){
-           
-           
 
-    	}else{
-            $data['showbanner'] = 'false';
-        }
-
-		 $this->load->view('homework',$data);
+		$this->load->view('show_homework',$data);
 	}
 
 
@@ -84,17 +62,18 @@ class Homework extends MY_Controller{
     }
 
 
-    public function get_homework_data(){
+    public function show_homework_data(){
     	
         $class_where['_id'] = new MongoDB\BSON\ObjectID($_POST['class_id']);
         $firstcollectdata = $this->crud_model->get('class',$class_where);	
 
         $datacollect['mesagedata'] = $firstcollectdata[0]['homework4class'];
-        $datacollect['classname']  = $firstcollectdata[0]['class_name'];
-        $datacollect['idofclass']  = $firstcollectdata[0]['_id'];
+        $datacollect['classname'] = $firstcollectdata[0]['class_name'];
+        $datacollect['idofclass'] = $firstcollectdata[0]['_id'];
         $datacollect['connectedclass'] = $firstcollectdata[0]['connectedclass'];
+        $datacollect['filterdayval'] = $_POST['filterval'];
 
-        $response['data'] = $this->load->view('content/homework_table', $datacollect, TRUE);
+        $response['data'] = $this->load->view('content/show_homework_table', $datacollect, TRUE);
         $response['status'] = TRUE;
         echo json_encode($response);
         exit();

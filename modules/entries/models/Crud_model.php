@@ -283,7 +283,7 @@ class Crud_model extends CI_Model{
 			$this->mongo_db2->where($where);
 			$this->mongo_db2->unset($pullColumn.'.'.$index);
 			$update = $this->mongo_db2->update($collection);
-			
+			$this->mongo_db2->pullAll($pullColumn,[null])->where($where)->update($collection);
 			return $update;
 			
 	 }

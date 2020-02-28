@@ -55,7 +55,7 @@
         <label for="date">Date</label>
         <input id="datepicker"  name="activity_date" onfocus="(this.type='date')" class="js-form-control" placeholder="Enter date" required="required">
         <label for="descrption">Description</label>
-        <textarea name="description" id="descrption1" cols="30" rows="6" placeholder="Write event details" required="required"></textarea>
+        <textarea name="description" maxlength="200" id="descrption1" cols="30" rows="6" placeholder="Write event details" required="required"></textarea>
         <input type="checkbox" name="publishforall" value="publish" id="check">
         <label id="check-text" for="check">Publish for all classes</label>
         <button id="send">Send</button>

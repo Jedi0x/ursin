@@ -1,4 +1,13 @@
+<?php
+  function date_compare($a, $b)
+  {
+      $t1 = strtotime($a['due_date']);
+      $t2 = strtotime($b['due_date']);
+      return $t1 - $t2;
+  }  
 
+  usort($mesagedata, "date_compare"); 
+ ?>
   <section class="bottom-area message-cont">
     <div class="container">
       
@@ -16,7 +25,8 @@
         <ul>
           
          <?php  if(isset($mesagedata)){ 
-            foreach ($mesagedata as $key => $value) {?>
+            foreach ($mesagedata as $key => $value) {
+              if($value['teachers_name'] == get_teacher_id()){ ?>
           <li>
             <div class="message">
               <div class="container">
@@ -41,7 +51,7 @@
             </div>
           </li>
          
-          <?php } }?> 
+          <?php } } }?> 
         </ul>
       </nav>
     </div>

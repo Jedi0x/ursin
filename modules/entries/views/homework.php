@@ -10,8 +10,8 @@
           <ul>
             <li class="drp-itm" id="wh-item"><a id="hw-active" href="homework.html">Homework <i class="fas fa-angle-down"></i></a>
               <ul>
-                <li><a href="<?php echo base_url('entries/homework'); ?>">Homework</a></li>
-                <li><a href="<?php echo base_url('entries/homework'); ?>">Expired Homework</a></li>
+                <li><a href="<?php echo base_url('entries/showhomework'); ?>">Show on frontscreen</a></li>
+                <li><a href="<?php echo base_url('entries/homework'); ?>">Who is absent?</a></li>
               </ul>
             </li>
             <li id="ex-item"><a href="<?php echo base_url('entries/exams'); ?>">Exams</a></li>
@@ -49,13 +49,13 @@
         <ul>
           <li>
              <div class="tooltip">
-          <a href="homework_sub.html">Show on Frontscreen</a>
+          <a href="<?php echo base_url('entries/showhomework'); ?>">Show on Frontscreen</a>
            <span class="tooltiptext">Show the students the homework so that they can transfer it to their agenda.</span>
           </div>
         </li>
         <li title="Sick">
            <div class="tooltippdf">
-             <a href="#"><i class="fas fa-thermometer-three-quarters"></i></a>
+             <a href="<?php echo base_url('entries/showhomework'); ?>"><i class="fas fa-thermometer-three-quarters"></i></a>
              <span class="tooltiptextpdf">Who is absent and should see this homeworks in his dashboard?</span>
            </div>
         </li>
@@ -72,7 +72,7 @@
         <label for="datepicker">Date</label>
         <input id="datepicker" name="due_date" onfocus="(this.type='date')" class="js-form-control" placeholder="Enter date" required="required">
         <label for="task">Task</label>
-        <textarea name="description" id="task" cols="30" rows="6" placeholder="Please describe" required="required"></textarea>
+        <textarea name="description" maxlength="300" id="task" cols="30" rows="6" placeholder="Please describe" required="required"></textarea>
         <button class="hw-send" id="send">Send</button>
     
     </div>
@@ -85,7 +85,7 @@
           <ul>
             <li id="wh-item">
               <div class="tooltip">
-                <a href="homework_sub.html">Show on Frontscreen</a>
+                <a href="<?php echo base_url('entries/showhomework'); ?>">Show on Frontscreen</a>
                 <span class="tooltiptext">Show the students the homework so that they can transfer it to their agenda.</span>
               </div>
             </li>
@@ -93,58 +93,10 @@
         </nav>
         <br/><br/>
       </div>
-      <div id="homeworkbox">
-        
-      </div>
-      <div class="sec-late-homework" id="late-homework">
-        <h1>Homework of the last few days</h1>
-        <div class="message">
-          <nav>
-            <ul>
-              <li>
-                <table>
-                  <tr>
-                    <td>2019/04/30</td>
-                    <td>English</td>
-                    <td>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum eos aliquam vel. Magni tempore in, nam impedit expedita rem ullam aut minima.
-                    </td>
-                    <td><a class="delete" href="#">&#10007;</a></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>German</td>
-                    <td>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum eos aliquam vel. Magni tempore in, nam impedit expedita rem ullam aut minima.
-                    </td>
-                    <td><a class="delete" href="#">&#10007;</a></td>
-                  </tr>
-                </table>
-              </li>
-              <li>
-                <table>
-                  <tr>
-                    <td>2019/04/25</td>
-                    <td>Math</td>
-                    <td>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum eos aliquam vel. Magni tempore in, nam impedit expedita rem ullam aut minima.
-                    </td>
-                    <td><a class="delete" href="#">&#10007;</a></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Scicence</td>
-                    <td>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum eos aliquam vel. Magni tempore in, nam impedit expedita rem ullam aut minima.
-                    </td>
-                    <td><a class="delete" href="#">&#10007;</a></td>
-                  </tr>
-                </table>
-              </li>
-            </ul>
-          </nav>
+        <div id="homeworkbox">
+
+           
         </div>
-      </div>
     </div>
   </section>
   <footer class="footer-area">

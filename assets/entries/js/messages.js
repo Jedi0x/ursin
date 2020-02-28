@@ -212,6 +212,27 @@ function load_alldata_homework(value){
 }
 
 
+function load_homework_data(){
+       var clsid = document.getElementById("class_id_showhw").value;
+       var filterval = $('input[name="filterdaterange"]:checked').val();
+       $.ajax({
+        method:'post',
+        url: base_url+'entries/showhomework/show_homework_data',
+        data:{class_id:clsid,filterval:filterval},
+        dataType:'json',
+        success:function(res){
+          if(res.status){
+            
+            $('#show_homeworkbox').html(res.data);
+          }else{
+             
+          }
+         
+        }
+      });
+}
+
+
 function checkvalidation_exam(){
   var clsid = document.getElementById("class_id_exm").value;
   if(clsid == ""){
