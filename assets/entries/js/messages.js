@@ -127,6 +127,38 @@ $(document).on('click', '.delete-homework', function(e){
 });
 
 
+$(document).on('click', '.delete-links', function(e){
+
+  var id = $(this).attr('data-id');
+  var key = $(this).attr('data-key');
+  $.confirm({
+    title: 'Delete Links',
+    content: 'Do you want to delete this weblink definitely?',
+    icon: 'fa fa-trash',
+    theme: 'supervan',
+    closeIcon: true,
+    animation: 'scale',
+    type: 'orange',
+    buttons: {
+      Delete: function () {
+        $.ajax({
+          type: "POST",
+          url: base_url+'entries/link/delete',
+          data:{id:id,key:key},
+          dataType:'json',
+          success: function(data)
+          {
+            if(data.status){
+              location.reload();
+            }
+          }
+        });
+      },
+      Cancel: function () {}
+    }
+  });
+});
+
 function load_alldata_teacher(value){
                   
 
@@ -215,6 +247,8 @@ function load_alldata_homework(value){
 function load_homework_data(){
        var clsid = document.getElementById("class_id_showhw").value;
        var filterval = $('input[name="filterdaterange"]:checked').val();
+
+     if(!$( "#btn_change_color" ).hasClass( "colorgrn" )){
        $.ajax({
         method:'post',
         url: base_url+'entries/showhomework/show_homework_data',
@@ -230,7 +264,61 @@ function load_homework_data(){
          
         }
       });
+      }else{
+        load_connected_teacher();
+      }
 }
+
+function load_connected_teacher(){
+       var clsid = document.getElementById("class_id_showhw").value;
+       var filterval = $('input[name="filterdaterange"]:checked').val();
+     
+       if(!$( "#btn_change_color" ).hasClass( "colorgrn" )){
+              $('#btn_change_color').addClass("colorgrn");
+               $('#btn_change_color').removeClass("colorwhite");
+              $('#iconid').css("color", "white");
+               $.ajax({
+                method:'post',
+                url: base_url+'entries/showhomework/get_all_homework_data',
+                data:{class_id:clsid,filterval:filterval},
+                dataType:'json',
+                success:function(res){
+                  if(res.status){
+                    $('#show_homeworkbox').html(res.data);
+                  }
+                 
+                }
+              });
+         }else{
+          $('#btn_change_color').addClass("colorwhite");
+          $('#btn_change_color').removeClass("colorgrn");
+          $('#iconid').css("color", "green");
+          load_homework_data();
+         }
+
+}
+
+function load_alldata_links(value){
+       var clsid = value;
+       $.ajax({
+        method:'post',
+        url: base_url+'entries/link/get_all_link_data',
+        data:{class_id:clsid},
+        dataType:'json',
+        success:function(res){
+          if(res.status){
+            
+            $('#linkbox').html(res.data);
+          }else{
+             
+          }
+         
+        }
+      });
+
+}
+
+
 
 
 function checkvalidation_exam(){
@@ -269,6 +357,29 @@ function checkvalidation_homework(){
   
 }
 
+function checkvalidation_links(){
+  var clsid = document.getElementById("clasid_link").value;
+  var urlid = document.getElementById("urlid").value;
+
+  if(clsid == ""){
+    toastr.error("Please select a class");
+    return false;  
+  }
+   if (!urlid.match(/^http?:/)) {
+          
+    toastr.error("Please start URLs with https://, http:// or www. Change entries that start with www by http://www");
+    return false;  
+   }
+  
+}
+
+function changecolor(colorcode){
+  $('#colorset').val(colorcode);
+
+  $('#setboxcolor').css('background',colorcode);
+  
+}
+
 
 
 function showmailcheckbox(value){
@@ -279,3 +390,74 @@ function showmailcheckbox(value){
   }
 
 }
+
+
+
+/////////////////////////////  Absent //////////////////////
+  
+  function callabsnet_stuendts(){
+       var clsid = document.getElementById("class_id_absent").value;
+       
+         $.ajax({
+          method:'post',
+          url: base_url+'entries/absent/show_students',
+          data:{class_id:clsid},
+          dataType:'json',
+          success:function(res){
+            if(res.status){
+              
+              $('#show_students').html(res.data);
+            }else{
+               
+            }
+           
+          }
+        });
+        
+  }
+
+  function abset_mark(student_id, flag,indexofabsent){
+
+        $.ajax({
+          method:'post',
+          url: base_url+'entries/absent/mark_absent',
+          data:{student_id:student_id,flag:flag,indexofabsent:indexofabsent},
+          dataType:'json',
+          success:function(res){
+            if(res.status){
+              
+             toastr.success("Successfully updated");  
+            }else{
+               
+            }
+           
+          }
+        });
+  }
+
+
+
+  function all_present_mark(student_id){
+        var clsid = document.getElementById("class_id_absent").value;
+        if(clsid != ''){
+          $.ajax({
+            method:'post',
+            url: base_url+'entries/absent/get_all_student_present',
+            data:{class_id:clsid},
+            dataType:'json',
+            success:function(res){
+              if(res.status){
+                
+                $('#show_students').html(res.data);
+              }else{
+                 
+              }
+             
+            }
+          });
+        }else{
+           toastr.error("Please select a class");
+        }
+  }
+
+///////////

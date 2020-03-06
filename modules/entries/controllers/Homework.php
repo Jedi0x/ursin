@@ -32,7 +32,7 @@ class Homework extends MY_Controller{
        
         $class_where['array_teachers'] = $this->logged_in_teacher_id;
         $data['classes'] = $this->crud_model->get('class',$class_where);
-        if($data['classes'][0]['show_tools'][4] == 1){
+        if($data['classes'][0]['show_tools'][2] == 1){
            
            
 

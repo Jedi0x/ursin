@@ -1,5 +1,19 @@
 
   <header class="header-area">
+    <style type="text/css">
+      .colorgrn{
+        background-color: green;
+      }
+      .colorwhite{
+        background-color: white;
+      }
+      .coloriconwhite{
+        background-color: white;
+      }
+      .coloricongrn{
+        background-color: white;
+      }
+    </style>
     <div class="container">
       <div class="logo-area">
         <a href="https://edtools.io/apps/"><img src="<?php echo base_url(); ?>assets/entries/images/logo.png" alt="Logo"></a>
@@ -39,9 +53,9 @@
                 <span class="tooltiptext">Mark absent students</span>
               </div>
             </li>
-            <li>
+            <li id="btn_change_color">
               <div class="tooltip">
-                <a class="ques-mark" href="#"><i class="fas fa-network-wired"></i></a>
+                <a class="ques-mark" href="javascript:void(0)" onclick="load_connected_teacher()"><i id="iconid" class="fas fa-network-wired"></i></a>
                 <span class="tooltiptext">Show homework of all teachers</span>
               </div>
             </li>

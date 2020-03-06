@@ -14,10 +14,11 @@
                 <li><a href="<?php echo base_url('entries/homework'); ?>">Who is absent?</a></li>
               </ul>
             </li>
-            <li id="ex-item"><a href="<?php echo base_url('entries/exams'); ?>">Exams</a></li>
-            <li id="ms-item"><a href="<?php echo base_url('entries/messages'); ?>">Messages</a></li>
-            <li id="lk-item"><a href="links.html">Links</a></li>
-            <li id="cl-item"><a href="<?php echo base_url('entries/calendar'); ?>">Calender</a></li>
+           <li><a href="<?php echo base_url('entries/homework'); ?>">Homework</a></li> 
+              <li id="ex-item"><a href="<?php echo base_url('entries/exams'); ?>">Exams</a></li>
+              <li id="ms-item"><a href="<?php echo base_url('entries/messages'); ?>">Messages</a></li>
+              <li id="lk-item"><a id="ln-active" href="<?php echo base_url('entries/link'); ?>">Links</a></li>
+              <li id="cl-item"><a href="<?php echo base_url('entries/calendar'); ?>">Calender</a></li>
             
             <li class="drp-itm" id="mr-item"><a href="">More<i class="fas fa-angle-down"></i></a>
               <ul>

@@ -9,11 +9,11 @@
         <nav>
           <ul>
             
-            <li><a href="<?php echo base_url('entries/homework'); ?>">Homework</a></li>
-            <li id="ex-item"><a id="exm-active" href="<?php echo base_url('entries/exams'); ?>">Exams</a></li>
-            <li id="ms-item"><a  href="<?php echo base_url('entries/messages'); ?>">Messages</a></li>
-            <li id="lk-item"><a href="links.html">Links</a></li>
-             <li id="cl-item"><a  href="<?php echo base_url('entries/calendar'); ?>">Calender</a></li>
+           <li><a href="<?php echo base_url('entries/homework'); ?>">Homework</a></li> 
+              <li id="ex-item"><a href="<?php echo base_url('entries/exams'); ?>">Exams</a></li>
+              <li id="ms-item"><a href="<?php echo base_url('entries/messages'); ?>">Messages</a></li>
+              <li id="lk-item"><a id="ln-active" href="<?php echo base_url('entries/link'); ?>">Links</a></li>
+              <li id="cl-item"><a href="<?php echo base_url('entries/calendar'); ?>">Calender</a></li>
 
         
             

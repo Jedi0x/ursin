@@ -90,6 +90,7 @@ class Showhomework extends MY_Controller{
         $datacollect['classname'] = $firstcollectdata[0]['class_name'];
         $datacollect['idofclass'] = $firstcollectdata[0]['_id'];
         $datacollect['connectedclass'] = $firstcollectdata[0]['connectedclass'];
+        $datacollect['filterdayval'] = $_POST['filterval'];
 
         $connteddata = $firstcollectdata[0]['connectedclass'];
         foreach ($connteddata as $key => $value) {
@@ -105,7 +106,7 @@ class Showhomework extends MY_Controller{
         }
        	
      
-        $response['data'] = $this->load->view('content/homework_table', $datacollect, TRUE);
+        $response['data'] = $this->load->view('content/show_homework_table', $datacollect, TRUE);
         $response['status'] = TRUE;
         echo json_encode($response);
         exit();
