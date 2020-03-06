@@ -118,7 +118,7 @@ class Messages extends MY_Controller{
             $this->session->set_flashdata('error',$msg);
         }
 
-        redirect('entries/messages');
+        redirect('entries/Messages');
 
     }
 

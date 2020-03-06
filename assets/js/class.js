@@ -4,7 +4,7 @@ $("#class-shortcut").on('submit',function(e){
   e.preventDefault();
   $.ajax({
     method:'post',
-    url:base_url+'settings/classes/shortcut',
+    url:base_url+'settings/Classes/shortcut',
     data:new FormData(this),
     dataType:'json',
     contentType: false,       // The content type used when sending data to the server.
@@ -42,7 +42,7 @@ $(document).on('click', '.delete-class', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'settings/classes/delete',
+          url: base_url+'settings/Classes/delete',
           data:{id:id},
           dataType:'json',
           success: function(data)
@@ -105,7 +105,7 @@ function update(id) {
 	var name = $("#class_name"+id).val();
 	$.ajax({
 		type: "POST",
-		url: base_url+'settings/classes/update',
+		url: base_url+'settings/Classes/update',
 		data:{id:id,name:name},
 		dataType:'json',
 		success: function(res)
@@ -133,7 +133,7 @@ $(document).on('click', '.delete-connected-class', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'settings/classes/delete_connected_class',
+          url: base_url+'settings/Classes/delete_connected_class',
           data:{id:id,index:index},
           dataType:'json',
           success: function(data)
@@ -154,7 +154,7 @@ function delete_shortcut(id,shortcut,index) {
 
   $.ajax({
     type: "POST",
-    url: base_url+'settings/classes/delete_shortcuts',
+    url: base_url+'settings/Classes/delete_shortcuts',
     data:{id:id,shortcut:shortcut,index:index},
     dataType:'json',
     success: function(data)

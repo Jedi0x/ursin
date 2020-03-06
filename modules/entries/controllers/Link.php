@@ -83,7 +83,7 @@ class Link extends MY_Controller{
                 }
         }
 
-        redirect('entries/link');
+        redirect('entries/Link');
     }
 
 

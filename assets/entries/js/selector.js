@@ -34,7 +34,7 @@ var x, i, j, selElmnt, a, b, c;
                    var clsid = document.getElementById("clasid").value;
                    $.ajax({
                     method:'post',
-                    url: base_url+'entries/messages/get_messages_data',
+                    url: base_url+'entries/Messages/get_messages_data',
                     data:{class_id:clsid},
                     dataType:'json',
                     success:function(res){

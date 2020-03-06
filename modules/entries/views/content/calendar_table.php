@@ -1,8 +1,8 @@
 <?php
   function date_compare($a, $b)
   {
-      $t1 = strtotime($a['due_date']);
-      $t2 = strtotime($b['due_date']);
+      $t1 = strtotime($a['activity_date']);
+      $t2 = strtotime($b['activity_date']);
       return $t1 - $t2;
   }  
 

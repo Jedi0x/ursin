@@ -96,7 +96,7 @@ class Calendar extends MY_Controller{
             }
         }
 
-        redirect('entries/calendar');
+        redirect('entries/Calendar');
     }
 
 
