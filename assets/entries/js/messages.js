@@ -15,7 +15,7 @@ $(document).on('click', '.delete-message', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'entries/messages/delete',
+          url: base_url+'entries/Messages/delete',
           data:{id:id,key:key},
           dataType:'json',
           success: function(data)
@@ -47,7 +47,7 @@ $(document).on('click', '.delete-exam', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'entries/exams/delete',
+          url: base_url+'entries/Exams/delete',
           data:{id:id,key:key},
           dataType:'json',
           success: function(data)
@@ -79,7 +79,7 @@ $(document).on('click', '.delete-calendar', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'entries/calendar/delete',
+          url: base_url+'entries/Calendar/delete',
           data:{id:id,key:key},
           dataType:'json',
           success: function(data)
@@ -110,7 +110,7 @@ $(document).on('click', '.delete-homework', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'entries/homework/delete',
+          url: base_url+'entries/Homework/delete',
           data:{id:id,key:key},
           dataType:'json',
           success: function(data)
@@ -143,7 +143,7 @@ $(document).on('click', '.delete-links', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'entries/link/delete',
+          url: base_url+'entries/Link/delete',
           data:{id:id,key:key},
           dataType:'json',
           success: function(data)
@@ -165,7 +165,7 @@ function load_alldata_teacher(value){
                    var clsid = value;
                    $.ajax({
                     method:'post',
-                    url: base_url+'entries/messages/get_all_teacher_data',
+                    url: base_url+'entries/Messages/get_all_teacher_data',
                     data:{class_id:clsid},
                     dataType:'json',
                     success:function(res){
@@ -186,7 +186,7 @@ function load_alldata_exams(value){
        var clsid = value;
        $.ajax({
         method:'post',
-        url: base_url+'entries/exams/get_all_exams_data',
+        url: base_url+'entries/Exams/get_all_exams_data',
         data:{class_id:clsid},
         dataType:'json',
         success:function(res){
@@ -207,7 +207,7 @@ function load_alldata_calendar(value){
        var clsid = value;
        $.ajax({
         method:'post',
-        url: base_url+'entries/calendar/get_all_calendar_data',
+        url: base_url+'entries/Calendar/get_all_calendar_data',
         data:{class_id:clsid},
         dataType:'json',
         success:function(res){
@@ -227,7 +227,7 @@ function load_alldata_homework(value){
        var clsid = value;
        $.ajax({
         method:'post',
-        url: base_url+'entries/homework/get_all_homework_data',
+        url: base_url+'entries/Homework/get_all_homework_data',
         data:{class_id:clsid},
         dataType:'json',
         success:function(res){
@@ -251,7 +251,7 @@ function load_homework_data(){
      if(!$( "#btn_change_color" ).hasClass( "colorgrn" )){
        $.ajax({
         method:'post',
-        url: base_url+'entries/showhomework/show_homework_data',
+        url: base_url+'entries/Showhomework/show_homework_data',
         data:{class_id:clsid,filterval:filterval},
         dataType:'json',
         success:function(res){
@@ -279,7 +279,7 @@ function load_connected_teacher(){
               $('#iconid').css("color", "white");
                $.ajax({
                 method:'post',
-                url: base_url+'entries/showhomework/get_all_homework_data',
+                url: base_url+'entries/Showhomework/get_all_homework_data',
                 data:{class_id:clsid,filterval:filterval},
                 dataType:'json',
                 success:function(res){
@@ -302,7 +302,7 @@ function load_alldata_links(value){
        var clsid = value;
        $.ajax({
         method:'post',
-        url: base_url+'entries/link/get_all_link_data',
+        url: base_url+'entries/Link/get_all_link_data',
         data:{class_id:clsid},
         dataType:'json',
         success:function(res){
@@ -400,7 +400,7 @@ function showmailcheckbox(value){
        
          $.ajax({
           method:'post',
-          url: base_url+'entries/absent/show_students',
+          url: base_url+'entries/Absent/show_students',
           data:{class_id:clsid},
           dataType:'json',
           success:function(res){
@@ -420,7 +420,7 @@ function showmailcheckbox(value){
 
         $.ajax({
           method:'post',
-          url: base_url+'entries/absent/mark_absent',
+          url: base_url+'entries/Absent/mark_absent',
           data:{student_id:student_id,flag:flag,indexofabsent:indexofabsent},
           dataType:'json',
           success:function(res){
@@ -442,7 +442,7 @@ function showmailcheckbox(value){
         if(clsid != ''){
           $.ajax({
             method:'post',
-            url: base_url+'entries/absent/get_all_student_present',
+            url: base_url+'entries/Absent/get_all_student_present',
             data:{class_id:clsid},
             dataType:'json',
             success:function(res){

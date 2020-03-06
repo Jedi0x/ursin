@@ -7,7 +7,7 @@
         <a href="https://edtools.io/apps/"><img src="assets/images/logo_black_medium.png" alt=""></a>
       </div>
       <div class="close-button">
-        <a href="<?php echo base_url('settings/classes'); ?>"><img src="assets/images/cancel.svg" class="img-svg"></a>
+        <a href="<?php echo base_url('settings/Classes'); ?>"><img src="assets/images/cancel.svg" class="img-svg"></a>
       </div>
     </div>
     <div class="heading-text">
@@ -135,7 +135,7 @@
   <section class="input-section" style="margin-top: 70px;">
     <div class="container close-btn-div">
      <div class="button">
-      <a href="<?php echo base_url('classes/'); ?>" type="button" class="close-btn">Close</a>
+      <a href="<?php echo base_url('Classes/'); ?>" type="button" class="close-btn">Close</a>
     </div>
   </div>
 </section>

@@ -35,7 +35,7 @@ var x, i, j, selElmnt, a, b, c;
                    
                      $.ajax({
                       method:'post',
-                      url: base_url+'entries/calendar/get_calendar_data',
+                      url: base_url+'entries/Calendar/get_calendar_data',
                       data:{class_id:clsid},
                       dataType:'json',
                       success:function(res){

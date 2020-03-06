@@ -7,9 +7,9 @@
       </div>
       <nav>
         <ul>
-          <li class="active"><a href="<?php echo base_url('settings/classes'); ?>">Manage Classes</a></li>
-          <li><a href="<?php echo base_url('settings/student'); ?>">Manage Students</a></li>
-          <li><a href="<?php echo base_url('settings/student/student'); ?>">Students Page</a></li>
+          <li class="active"><a href="<?php echo base_url('settings/Classes'); ?>">Manage Classes</a></li>
+          <li><a href="<?php echo base_url('settings/Student'); ?>">Manage Students</a></li>
+          <li><a href="<?php echo base_url('settings/Student/student'); ?>">Students Page</a></li>
         </ul>
       </nav>
       <div class="help-icon">
@@ -65,7 +65,7 @@
             </div>
             <div class="btn-set">
               <div class="button">
-                <a href="<?php echo base_url('settings/classes/settings/').$class['_id']; ?>">Settings</a>
+                <a href="<?php echo base_url('settings/Classes/settings/').$class['_id']; ?>">Settings</a>
               </div>
               <div class="button">
                 <button type="button" class="delete-class" data-id="<?=$class['_id']?>">Delete</button>
@@ -83,7 +83,7 @@
   <section class="dropdown-box">
     <div class="container">
       <span>Select main class:</span>
-      <form action="<?php echo base_url('settings/classes/standard'); ?>" method="POST">
+      <form action="<?php echo base_url('settings/Classes/standard'); ?>" method="POST">
         <div class="drb">
           <select name="standart_class" required>
             <option value="">Select Class</option>

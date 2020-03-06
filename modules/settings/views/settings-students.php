@@ -7,7 +7,7 @@
       </div>
       <div class="close-button">
 
-        <a href="<?php echo base_url('settings/student/'); ?>"><img src="assets/images/cancel.svg" class="img-svg"></a>
+        <a href="<?php echo base_url('settings/Student/'); ?>"><img src="assets/images/cancel.svg" class="img-svg"></a>
       </div>
     </div>
     <div class="heading-text">
@@ -54,7 +54,7 @@
   } ?>
   <section class="input-section">
     <div class="container">
-      <form action="<?php echo base_url('settings/student/family_emails'); ?>" method = "POST">
+      <form action="<?php echo base_url('settings/Student/family_emails'); ?>" method = "POST">
         <table>
         <tr>
           <td><input class="in" type="email" name="family" placeholder="Family email address" value="<?=$familyEmail?>"><i class="fas fa-gender"></i></td>

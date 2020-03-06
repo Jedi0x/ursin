@@ -11,9 +11,9 @@
       </div>
       <nav>
         <ul>
-          <li><a href="<?php echo base_url('settings/classes'); ?>">Manage Classes</a></li>
-          <li class="active"><a href="<?php echo base_url('settings/student/'); ?>">Manage Students</a></li>
-          <li><a href="<?php echo base_url('settings/student/student'); ?>">Students Page</a></li>
+          <li><a href="<?php echo base_url('settings/Classes'); ?>">Manage Classes</a></li>
+          <li class="active"><a href="<?php echo base_url('settings/Student/'); ?>">Manage Students</a></li>
+          <li><a href="<?php echo base_url('settings/Student/student'); ?>">Students Page</a></li>
         </ul>
       </nav>
       <div class="help-icon">
@@ -25,7 +25,7 @@
    <section class="dashboard" style="text-align: center;">
     <div class="container">
       <span>Please create a class first</span><br>
-     <a href="<?php echo base_url('classes'); ?>">Click Here.</a>
+     <a href="<?php echo base_url('Classes'); ?>">Click Here.</a>
     </div>
   </section>
     
@@ -33,7 +33,7 @@
   <section class="add-student">
     <div class="container">
       <span>Add new Students</span>
-      <form action="<?php echo base_url('settings/student/manage'); ?>" method="POST">
+      <form action="<?php echo base_url('settings/Student/manage'); ?>" method="POST">
         <div class="form-top">
           <div class="text-area">
             <textarea name="student_names" class="tarea"  required cols="40" rows="5" placeholder="Enter names comma separated or on new lines."></textarea>

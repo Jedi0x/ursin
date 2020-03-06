@@ -35,7 +35,7 @@ var x, i, j, selElmnt, a, b, c;
                    
                      $.ajax({
                       method:'post',
-                      url: base_url+'entries/exams/get_exams_data',
+                      url: base_url+'entries/Exams/get_exams_data',
                       data:{class_id:clsid},
                       dataType:'json',
                       success:function(res){

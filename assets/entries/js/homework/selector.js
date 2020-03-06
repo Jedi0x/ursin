@@ -35,7 +35,7 @@ var x, i, j, selElmnt, a, b, c;
                    
                      $.ajax({
                       method:'post',
-                      url: base_url+'entries/homework/get_homework_data',
+                      url: base_url+'entries/Homework/get_homework_data',
                       data:{class_id:clsid},
                       dataType:'json',
                       success:function(res){

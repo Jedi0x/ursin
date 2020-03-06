@@ -35,7 +35,7 @@ var x, i, j, selElmnt, a, b, c;
                    
                      $.ajax({
                       method:'post',
-                      url: base_url+'entries/link/get_link_data',
+                      url: base_url+'entries/Link/get_link_data',
                       data:{class_id:clsid},
                       dataType:'json',
                       success:function(res){

@@ -4,7 +4,7 @@ $("#transfer-student").on('submit',function(e){
   e.preventDefault();
   $.ajax({
     method:'post',
-    url:base_url+'settings/student/transfer',
+    url:base_url+'settings/Student/transfer',
     data:new FormData(this),
     dataType:'json',
     contentType: false,       // The content type used when sending data to the server.
@@ -58,7 +58,7 @@ $(document).on('click', '.delete-student', function(e){
       Delete: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'settings/student/delete',
+          url: base_url+'settings/Student/delete',
           data:{id:id,classid:classid},
           dataType:'json',
           success: function(res){
@@ -90,7 +90,7 @@ $(document).on('click', '.change-code', function(e){
       Ok: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'student/change_code',
+          url: base_url+'student/Change_code',
           data:{id:id,student:student},
           dataType:'json',
           success: function(data){
@@ -122,7 +122,7 @@ $(document).on('click', '.change-parent-code', function(e){
       Ok: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'student/change_parent_code',
+          url: base_url+'student/Change_parent_code',
           data:{id:id,student:student},
           dataType:'json',
           success: function(data){
@@ -161,7 +161,7 @@ $(document).on('click', "input[name='option']", function(e){
   
   $.ajax({
     type: "POST",
-    url: base_url+'settings/student/options',
+    url: base_url+'settings/Student/options',
     data:{class_id:class_id,index:index,value:value},
     dataType:'json',
     success: function(data){}
@@ -182,7 +182,7 @@ $(document).on('click', "#homework-second", function(e){
 
   $.ajax({
     type: "POST",
-    url: base_url+'student/options',
+    url: base_url+'student/Options',
     data:{class_id:class_id,index:index,value:value},
     dataType:'json',
     success: function(data){}
@@ -194,7 +194,7 @@ $(document).on('change', "[name='standart_class']", function(e){
   var class_id = $("[name='standart_class']").val();
   $.ajax({
     type: "POST",
-    url: base_url+'settings/classes/options',
+    url: base_url+'settings/Classes/options',
     data:{class_id:class_id},
     success: function(res){
       $("#option-panel").html(res);

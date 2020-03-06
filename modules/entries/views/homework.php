@@ -10,15 +10,15 @@
           <ul>
             <li class="drp-itm" id="wh-item"><a id="hw-active" href="homework.html">Homework <i class="fas fa-angle-down"></i></a>
               <ul>
-                <li><a href="<?php echo base_url('entries/showhomework'); ?>">Show on frontscreen</a></li>
-                <li><a href="<?php echo base_url('entries/homework'); ?>">Who is absent?</a></li>
+                <li><a href="<?php echo base_url('entries/Showhomework'); ?>">Show on frontscreen</a></li>
+                <li><a href="<?php echo base_url('entries/Absent'); ?>">Who is absent?</a></li>
               </ul>
             </li>
-           <li><a href="<?php echo base_url('entries/homework'); ?>">Homework</a></li> 
-              <li id="ex-item"><a href="<?php echo base_url('entries/exams'); ?>">Exams</a></li>
-              <li id="ms-item"><a href="<?php echo base_url('entries/messages'); ?>">Messages</a></li>
-              <li id="lk-item"><a id="ln-active" href="<?php echo base_url('entries/link'); ?>">Links</a></li>
-              <li id="cl-item"><a href="<?php echo base_url('entries/calendar'); ?>">Calender</a></li>
+           <li><a href="<?php echo base_url('entries/Homework'); ?>">Homework</a></li> 
+              <li id="ex-item"><a href="<?php echo base_url('entries/Exams'); ?>">Exams</a></li>
+              <li id="ms-item"><a href="<?php echo base_url('entries/Messages'); ?>">Messages</a></li>
+              <li id="lk-item"><a id="ln-active" href="<?php echo base_url('entries/Link'); ?>">Links</a></li>
+              <li id="cl-item"><a href="<?php echo base_url('entries/Calendar'); ?>">Calender</a></li>
             
             <li class="drp-itm" id="mr-item"><a href="">More<i class="fas fa-angle-down"></i></a>
               <ul>
@@ -34,7 +34,7 @@
     </div>
   </header>
   <?php if(!isset($showbanner)){ ?>
-<form action="<?php echo base_url('entries/homework/manage'); ?>" onsubmit="return checkvalidation_homework()" method="POST">
+<form action="<?php echo base_url('entries/Homework/manage'); ?>" onsubmit="return checkvalidation_homework()" method="POST">
   <section class="class-selection hw-selt">
          
     <div class="container">

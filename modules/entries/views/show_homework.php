@@ -61,7 +61,7 @@
             </li>
             <li>
               <div class="tooltip">
-                <a class="ques-mark" href="<?php echo base_url('entries/showhomework'); ?>"><i class="fas fa-undo-alt"></i></a>
+                <a class="ques-mark" href="<?php echo base_url('entries/Showhomework'); ?>"><i class="fas fa-undo-alt"></i></a>
                 <span class="tooltiptext">Reload page</span>
               </div>
             </li>

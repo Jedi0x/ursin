@@ -7,9 +7,9 @@
       </div>
       <nav>
         <ul>
-          <li><a href="<?php echo base_url('settings/classes'); ?>">Manage Classes</a></li>
-          <li><a href="<?php echo base_url('settings/student'); ?>">Manage Students</a></li>
-          <li class="active"><a href="<?php echo base_url('student/student'); ?>">Students Page</a></li>
+          <li><a href="<?php echo base_url('settings/Classes'); ?>">Manage Classes</a></li>
+          <li><a href="<?php echo base_url('settings/Student'); ?>">Manage Students</a></li>
+          <li class="active"><a href="<?php echo base_url('student/Student'); ?>">Students Page</a></li>
         </ul>
       </nav>
       <div class="help-icon">
@@ -22,7 +22,7 @@
    <section class="dashboard" style="text-align: center;">
     <div class="container">
       <span>Please create a class first</span><br>
-     <a href="<?php echo base_url('classes'); ?>">Click Here.</a>
+     <a href="<?php echo base_url('Classes'); ?>">Click Here.</a>
     </div>
   </section>
     
