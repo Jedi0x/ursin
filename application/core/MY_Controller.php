@@ -6,9 +6,9 @@ class MY_Controller extends CI_Controller{
 		parent::__construct();
 
 		
-		if(file_exists(FCPATH.'user/library/Am/Lite.php')){
+		if(file_exists(SERVER_URL.'user/library/Am/Lite.php')){
 
-				require_once FCPATH.'user/library/Am/Lite.php'; 
+				require_once SERVER_URL.'user/library/Am/Lite.php'; 
 		if(Am_Lite::getInstance()->isLoggedIn()){
 			$user = Am_Lite::getInstance()->getUser();
 			$usermeta = Am_Lite::getInstance()->getAccess();

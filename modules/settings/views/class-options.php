@@ -3,17 +3,17 @@ ksort($class_tools[0]['show_tools']);
 $valueArray = array_slice($class_tools[0]['show_tools'],0,11);
 
 $nameArray = array(
-  array("name"=>"Overdue Task","img"=>"assets/images/icon_tasks.png"),
-  array("name"=>"Messages to Class","img"=>"assets/images/icon_messages.png"),
-  array("name"=>"Weblink","img"=>"assets/images/icon-url.png"),
-  array("name"=>"Exam Dates","img"=>"assets/images/icon_exam.png"),
-  array("name"=>"Homework","img"=>"assets/images/icon-collection.png","sub"=>1),
-  array("name"=>"Calendar","img"=>"assets/images/icon-calendar.png"),
-  array("name"=>"Checklist","img"=>"assets/images/icon_checklist.png"),
-  array("name"=>"Solution Keys","img"=>"assets/images/icon_solution.png"),
-  array("name"=>"Sick Notifications","img"=>"assets/images/icon_ill.png"),
-  array("name"=>"Library","img"=>"assets/images/icon-library.png"),
-  array("name"=>"Files","img"=>"assets/images/icon-file.png")
+  array("name"=>"Overdue Task","img"=>"appci/assets/images/icon_tasks.png"),
+  array("name"=>"Messages to Class","img"=>"appci/assets/images/icon_messages.png"),
+  array("name"=>"Weblink","img"=>"appci/assets/images/icon-url.png"),
+  array("name"=>"Exam Dates","img"=>"appci/assets/images/icon_exam.png"),
+  array("name"=>"Homework","img"=>"appci/assets/images/icon-collection.png","sub"=>1),
+  array("name"=>"Calendar","img"=>"appci/assets/images/icon-calendar.png"),
+  array("name"=>"Checklist","img"=>"appci/assets/images/icon_checklist.png"),
+  array("name"=>"Solution Keys","img"=>"appci/assets/images/icon_solution.png"),
+  array("name"=>"Sick Notifications","img"=>"appci/assets/images/icon_ill.png"),
+  array("name"=>"Library","img"=>"appci/assets/images/icon-library.png"),
+  array("name"=>"Files","img"=>"appci/assets/images/icon-file.png")
 );
 
 $options_array = array();
@@ -59,7 +59,7 @@ foreach ($options_array as $k1 => $v1) {
 
         ?>
         <div class="dash dash-second" style="display: <?=$display ?>">
-          <div class="debo-icon"><img src="assets/images/icon-collection.png" alt=""></div>
+          <div class="debo-icon"><img src="appci/assets/images/icon-collection.png" alt=""></div>
           <div class="ht">
             <h4 class="t">Homework for absent students</h4>
           </div>

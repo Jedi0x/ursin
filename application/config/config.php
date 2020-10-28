@@ -28,7 +28,8 @@ $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' :
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$config['base_url'] =	$protocol.$_SERVER['HTTP_HOST'].'/ursin/';
 }else{
-	$config['base_url'] =	'https://edtools.io/settings/';
+	$config['base_url'] =	'https://edtools.io/';
+	
 };
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

@@ -3,11 +3,11 @@
   <header class="header header-area section-header" id="hone">
     <div class="container">
       <div class="logo-area">
-        <a href="https://edtools.io/apps/"><img src="assets/images/logo_black_medium.png" alt=""></a>
+        <a href="https://edtools.io/apps/"><img src="appci/assets/images/logo_black_medium.png" alt=""></a>
       </div>
       <div class="close-button">
 
-        <a href="<?php echo base_url('settings/Student/'); ?>"><img src="assets/images/cancel.svg" class="img-svg"></a>
+        <a href="<?php echo base_url('settings/Student/'); ?>"><img src="appci/assets/images/cancel.svg" class="img-svg"></a>
       </div>
     </div>
     <div class="heading-text">
@@ -22,13 +22,13 @@
             <td>
               <h3><?php echo $student[0]['student_name']; ?>'s e-mail</h3>
             </td>
-            <td><a class="ques-mark" href="#"><img src="assets/images/question.png" alt=""></a></td>
+            <td><a class="ques-mark" href="#"><img src="appci/assets/images/question.png" alt=""></a></td>
           </tr>
         </table>
       </div>
       <div class="icon-bar">
         <ul>
-          <li><a href="#"><img src="assets/images/icon_ill.png" alt=""></a></li>
+          <li><a href="#"><img src="appci/assets/images/icon_ill.png" alt=""></a></li>
         </ul>
       </div>
       <div class="section-text">
@@ -84,13 +84,13 @@
             <td>
               <h3>Change Student Password</h3>
             </td>
-            <td><a class="ques-mark" href="#"><img src="assets/images/question.png" alt=""></a></td>
+            <td><a class="ques-mark" href="#"><img src="appci/assets/images/question.png" alt=""></a></td>
           </tr>
         </table>
       </div>
       <div class="icon-bar">
         <ul>
-          <li><a href="#"><img src="assets/images/icon_settings.png" alt=""></a></li>
+          <li><a href="#"><img src="appci/assets/images/icon_settings.png" alt=""></a></li>
         </ul>
       </div>
       <div class="section-text">
@@ -118,13 +118,13 @@
             <td>
               <h3>Change the parent code</h3>
             </td>
-            <td><a class="ques-mark" href="#"><img src="assets/images/question.png" alt=""></a></td>
+            <td><a class="ques-mark" href="#"><img src="appci/assets/images/question.png" alt=""></a></td>
           </tr>
         </table>
       </div>
       <div class="icon-bar">
         <ul>
-          <li><a href="#"><img src="assets/images/icon_settings.png" alt=""></a></li>
+          <li><a href="#"><img src="appci/assets/images/icon_settings.png" alt=""></a></li>
         </ul>
       </div>
       <div class="section-text">
@@ -147,7 +147,7 @@
   <section class="input-section"  style="margin-top: 70px;">
     <div class="container close-btn-div">
        <div class="button">
-                <a href="<?php echo base_url('student/'); ?>" type="button" class="close-btn">Close</a>
+                <a href="<?php echo base_url('settings/Student/'); ?>" type="button" class="close-btn">Close</a>
               </div>
     </div>
   </section>

@@ -8,7 +8,7 @@ Dear Parents
 <br>
 
  <?php echo $datamessage[0]['teacher_name']; ?> has posted a new EdTools-message to all parents:
-<br>
+<br><br>
 
 <b>Title:</b> <?php echo $datamessage[0]['title']; ?>
 <br>

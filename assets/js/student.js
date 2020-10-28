@@ -90,7 +90,7 @@ $(document).on('click', '.change-code', function(e){
       Ok: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'student/Change_code',
+          url: base_url+'settings/Student/Change_code',
           data:{id:id,student:student},
           dataType:'json',
           success: function(data){
@@ -122,7 +122,7 @@ $(document).on('click', '.change-parent-code', function(e){
       Ok: function () {
         $.ajax({
           type: "POST",
-          url: base_url+'student/Change_parent_code',
+          url: base_url+'settings/Student/Change_parent_code',
           data:{id:id,student:student},
           dataType:'json',
           success: function(data){
@@ -182,7 +182,7 @@ $(document).on('click', "#homework-second", function(e){
 
   $.ajax({
     type: "POST",
-    url: base_url+'student/Options',
+    url: base_url+'settings/Student/options',
     data:{class_id:class_id,index:index,value:value},
     dataType:'json',
     success: function(data){}

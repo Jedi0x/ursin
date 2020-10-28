@@ -1,19 +1,53 @@
+<pre>
 <?php
-  function date_compare($a, $b)
-  {
-      $t1 = strtotime($a['due_date']);
-      $t2 = strtotime($b['due_date']);
-      return $t1 - $t2;
-  }  
-  usort($mesagedata, "date_compare"); 
- ?>
-    <h1>Exam in Class <?php echo $classname; ?>
+  // asort($mesagedata);
+  function sorting($a, $b) {  
+    return strtotime($a['due_date']) - strtotime($b['due_date']);
+  }
 
-        <?php if(!  empty($connectedclass)){ ?>  
-          <div style="float:right; font-size: 12px; color:red">Show all teachers  
-            <input type="checkbox" name="" onclick="load_alldata_homework('<?php echo $idofclass ?>')"></div> 
+  function sortingforgray($a, $b) {  
+    return strtotime($b['due_date']) - strtotime($a['due_date']);
+  }
+
+  uasort($mesagedata,"sorting");
+
+  $arrayofsort222 =  array();
+  $dateofall = array();
+  foreach ($mesagedata as $key => $value1) {
+      if(!in_array($value1['due_date'], $dateofall)){
+         $dateofall[$key] = $value1['due_date'];
+       }
+  } 
+
+$sorted = array();
+foreach ($dateofall as $key => $sorting) {
+        asort($mesagedata);
+        foreach ($mesagedata as $k => $data) {
+              if($sorting == $data['due_date'])
+              {
+                  $sorted[$k] = $data;
+              }
+        }
+}
+$mesagedata = $sorted;
+
+$mesagedata2 = $sorted;
+uasort($mesagedata2,"sortingforgray");
+//print_r($mesagedata2);
+
+
+ ?>
+</pre>
+
+    <h1>Homework in <?php echo $classname; ?>
+
+        <?php if(!empty($connectedclass)){ ?>  
+          <div style="float:right; font-size: 12px; color:gray">
+            <input type="checkbox" id='homeworkcheckbox_teacher' <?php if(isset($checkboxchecked)){ echo 'checked';  } ?> onclick="load_alldata_homework('<?php echo $idofclass ?>')" ></div> 
+          <div style="float:right; font-size: 12px; color:gray;margin-top: 3px;">Show all teachers  
+          </div> 
         <?php }else{ ?>
-          <a href="<?php echo base_url(); ?>settings/student/student"> <div style="float:right; font-size: 12px; color:red">Connect to another teacher</div> </a>
+          <a href="<?php echo base_url(); ?>settings/Classes/settings/<?php echo $idofclass; ?>" target="_blank"> <div style="float:right; font-size: 12px; color:gray">Connect to another teacher</div> </a>
         <?php }?>
     </h1>
 
@@ -23,8 +57,11 @@
                 <?php  if(isset($mesagedata)){ 
                    $datearrt =  array();
                    $count = 0;
+                 
                  foreach ($mesagedata as $key => $value) {
-                  if($value['due_date'] >= date('Y-m-d') && $value['teachers_name'] == get_teacher_id()){
+
+                  //$value['teachers_id'] == get_teacher_id()
+                  if($value['due_date'] >= date('m/d/Y') ){
                    
                    ?>
                         <li>
@@ -34,11 +71,18 @@
                                       <td></td>
                                       <td><?php echo $value['subject']; ?></td>
                                       <td>
+                                        <?php 
+                                        if(isset($checkboxchecked) &&  isset($value[0]) ){
+                                           echo '  ('.$value['teachers_name'].')';
+                                         }
+                                        ?>
                                         <?php echo $value['description']; ?>
                                       </td>
                                       <td>
                                         <?php if(!isset($value[0])){?>
-                                         <button style="color:none;border: none; padding: 0" class="delete delete-homework" data-id="<?php echo $idofclass; ?>" data-key="<?php echo $key ?>" >&#10007;</button>
+                                         <button style="color:none;border: none; padding: 0" class="delete delete-homework" data-id="<?php echo $idofclass; ?>"
+                                           data-check='<?php if(isset($checkboxchecked)){echo $checkboxchecked; } ?>'  
+                                          data-key="<?php echo $key ?>" >&#10007;</button>
                                           <?php } ?>
                                        </td>
                                   </tr>
@@ -47,11 +91,18 @@
                                     <td><?php echo $value['due_date']; ?></td>
                                     <td><?php echo $value['subject']; ?></td>
                                     <td>
+                                      <?php 
+                                        if(isset($checkboxchecked) &&  isset($value[0]) ){
+                                           echo '  ('.$value['teachers_name'].')';
+                                         }
+                                        ?>  
                                       <?php echo $value['description']; ?>
                                     </td>
                                     <td>
                                    <?php if(!isset($value[0])){?>
-                                         <button style="color:none;border: none; padding: 0" class="delete delete-homework" data-id="<?php echo $idofclass; ?>" data-key="<?php echo $key ?>" >&#10007;</button>
+                                         <button style="color:none;border: none; padding: 0" class="delete delete-homework" data-id="<?php echo $idofclass; ?>"
+                                         data-check='<?php if(isset($checkboxchecked)){echo $checkboxchecked; } ?>'  
+                                          data-key="<?php echo $key ?>" >&#10007;</button>
                                     <?php } ?>
                                      </td>
                                   </tr>
@@ -78,8 +129,8 @@
                   <?php  if(isset($mesagedata)){ 
                     $datearrtlastdy =  array();
                     $countday = 0;
-                    foreach ($mesagedata as $key => $valueday) {
-                      if($valueday['due_date'] < date('Y-m-d')){
+                    foreach ($mesagedata2 as $key => $valueday) {
+                      if($valueday['due_date'] < date('m/d/Y')){
                   ?>
                     <li>
                       <table style="width: 100%; ">

@@ -40,8 +40,19 @@ var x, i, j, selElmnt, a, b, c;
                       dataType:'json',
                       success:function(res){
                         if(res.status){
-                          
                           $('#homeworkbox').html(res.data);
+                          if(res.messageaccess == 0){
+                              $('#accesserrorgreen').hide();
+                              $('#accesserror').show();  
+                              $(".activelink").attr("href", "settings/Student/student/"+clsid);
+                            }else if(res.messageaccess == 2){
+                              $('#accesserrorgreen').show();
+                              $('#accesserror').hide();   
+                              $(".activelink").attr("href", "settings/Student/student/"+clsid);
+                            }else{
+                              $('#accesserrorgreen').hide(); 
+                              $('#accesserror').hide();   
+                            }
                         }else{
                            
                         }

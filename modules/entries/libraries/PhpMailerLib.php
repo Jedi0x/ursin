@@ -23,7 +23,7 @@ class PhpMailerLib
     public function testmessage($body)
     {
         $this->mail->setFrom($this->mail->Username, 'Report');
-        $this->mail->addAddress('blackdesire002@gmail.com'); 
+        $this->mail->addAddress('m.adeel141@gmail.com'); 
         $this->mail->isHTML(true);                                  
         $this->mail->Subject = 'test';
         $this->mail->Body    = $body;
@@ -65,9 +65,9 @@ class PhpMailerLib
     public function message_email_all_parent($mails,$body)
     {
         $this->mail->setFrom($this->mail->Username, 'EdTools');
-        foreach ($mails as $key => $mail) {
-           $this->mail->addAddress($mail); 
-        }
+        //foreach ($mails as $key => $mail) {
+           $this->mail->addAddress($mails); 
+        //}
         $this->mail->isHTML(true);                                  
         $this->mail->Subject = 'EdTools Parent Code Dear Parents';
         $this->mail->Body    = $body;

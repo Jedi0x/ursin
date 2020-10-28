@@ -12,26 +12,26 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-   <link rel="stylesheet" type="text/css" href="assets/components/tooltipify/lib/tooltipify.min.css">
+   <link rel="stylesheet" type="text/css" href="appci/assets/components/tooltipify/lib/tooltipify.min.css">
 
 
-  <link rel="stylesheet" type="text/css" href="assets/components/toastr/toastr.css">
-  <link rel="stylesheet" type="text/css" href="assets/components/jquery-confirm/jquery-confirm.min.css">
+  <link rel="stylesheet" type="text/css" href="appci/assets/components/toastr/toastr.css">
+  <link rel="stylesheet" type="text/css" href="appci/assets/components/jquery-confirm/jquery-confirm.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">  
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/entries/css/absent-style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>appci/assets/entries/css/absent-style.css">
 
   
 
 
   {styles}
 
-   <script type="text/javascript" src="assets/js/jquery.js"></script>
-  <script type="text/javascript" src="assets/components/toastr/toastr.min.js"></script>
-  <script type="text/javascript" src="assets/components/jquery-confirm/jquery-confirm.min.js"></script>
-  <script type="text/javascript" src="assets/components/tooltipify/lib/jquery-tooltipify.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/entries/js/messages.js"></script>
+   <script type="text/javascript" src="appci/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="appci/assets/components/toastr/toastr.min.js"></script>
+  <script type="text/javascript" src="appci/assets/components/jquery-confirm/jquery-confirm.min.js"></script>
+  <script type="text/javascript" src="appci/assets/components/tooltipify/lib/jquery-tooltipify.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>appci/assets/entries/js/messages.js"></script>
   <script type="text/javascript">
         
         function toasterOptions() {
@@ -75,6 +75,6 @@
         toastr.error("<?php echo $this->session->userdata("error"); ?>");
     </script>
     <?php } ?>
-<script src="<?php echo base_url(); ?>assets/entries/js/absent/selector.js"></script>
-<script src="<?php echo base_url(); ?>assets/entries/js/typewriter.js"></script>
+<script src="<?php echo base_url(); ?>appci/assets/entries/js/absent/selector.js"></script>
+<script src="<?php echo base_url(); ?>appci/assets/entries/js/typewriter.js"></script>
 </html>

@@ -108,7 +108,7 @@ class Student extends MY_Controller {
 			}
 		
 		}
-		redirect('settings/student');
+		redirect('settings/Student');
 	}
 
 
@@ -353,8 +353,15 @@ class Student extends MY_Controller {
 
 			$datas['student'] = $student;
 			if(!empty($mails)){
+				$mails1 = implode(",",$mails);
+
 				$body = $this->load->view('email/parent_template',$datas, true);
-				$this->phpmailerlib->parent_email_added($mails,$body);
+				// $this->phpmailerlib->parent_email_added($mails,$body);
+				$subject = 'Security message: New parent email added';
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= 'From: EdTools <notification@edtools.io>';
+                $sts = mail($mails1,$subject,$body,$headers);
 			}
 			
 			$msg = 'Students Emails Added Successfully';
@@ -368,7 +375,7 @@ class Student extends MY_Controller {
 			$this->session->set_flashdata('error',$msg);
 		}
 
-		$redirect_url = "settings/student/setting/".$this->input->post('student_id');
+		$redirect_url = "settings/Student/setting/".$this->input->post('student_id');
 		redirect($redirect_url);
 
 
@@ -428,9 +435,17 @@ class Student extends MY_Controller {
 			}
 
 			if(!empty($mails)){
+				$mails2 = implode(",",$mails);
+
 				$data['code'] = $data['parents-code'];
 				$body = $this->load->view('email/change_parent_code',$data, true);
-				$this->phpmailerlib->parent_code_changed($mails,$body);
+
+				//$this->phpmailerlib->parent_code_changed($mails,$body);
+				$subject = 'EdTools Parent Code Dear Parents';
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= 'From: EdTools <notification@edtools.io>';
+                $sts = mail($mails2,$subject,$body,$headers);
 			}
 			
 
@@ -450,7 +465,7 @@ class Student extends MY_Controller {
 	}
 
 
-	public function student()
+	public function student($clid = '')
 	{
 		$where['array_teachers'] =  $this->logged_in_teacher_id;
 		$data['classes'] = $this->crud_model->get('class',$where);
@@ -458,6 +473,11 @@ class Student extends MY_Controller {
 		$classWhere['standard'] = 1;
 		$data['class_tools'] = $this->crud_model->get('class',$classWhere);
 		$this->title = "Student Page";
+
+		if(!empty($clid)){
+            $data['selectclass'] = $clid;
+        }
+
 		$this->load->view('student-page',$data);
 	}
 

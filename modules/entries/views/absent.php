@@ -2,19 +2,21 @@
   <header class="header-area">
     <div class="container">
       <div class="logo-area">
-        <a href="https://edtools.io/apps/"><img src="<?php echo base_url() ?>assets/entries/images/logo.png" alt="Logo"></a>
+        <a href="https://edtools.io/apps/"><img src="<?php echo base_url() ?>appci/assets/entries/images/logo.png" alt="Logo"></a>
       </div>
       <div class="class-select-area">
         <div class="custom-select">
           <select name="class_name" id="class_id_absent">
             <option value="">Select Class</option>
-            <?php foreach ($classes as $class) { ?>
-              <option value="<?=$class['_id']?>"><?=$class['class_name']?></option>
+            <?php foreach ($classes as $key => $class) { ?>
+              <option value="<?=$class['_id']?>"<?php if($class['standard'] == 1){ echo 'selected';}else{ 
+                          if($key == 0){ echo 'selected'; } 
+                        } ?> ><?=$class['class_name']?></option>
             <?php } ?>
           </select>
         </div>
       </div>
-
+      <script type="text/javascript">callabsnet_stuendts();</script>
       <div class="icon-set">
         <nav>
           <ul>
@@ -26,7 +28,7 @@
             </li>
             <li>
               <div class="tooltip">
-                <a class="ques-mark" href="https://www.edtools.io/settings/student/student"><i class="fas fa-cog"></i></a>
+                <a class="ques-mark" href="https://www.edtools.io/settings/Student"><i class="fas fa-cog"></i></a>
                 <span class="tooltiptext">Set whether absent students can see home-work</span>
               </div>
             </li>

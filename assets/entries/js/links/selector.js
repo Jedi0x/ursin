@@ -42,6 +42,14 @@ var x, i, j, selElmnt, a, b, c;
                         if(res.status){
                           
                           $('#linkbox').html(res.data);
+                          if(res.messageaccess == "1"){
+                   
+                            $('#accesserror').show();  
+                            $("#activelink").attr("href", "settings/Student/student/"+clsid);
+                          }else{
+                             $('#accesserror').hide();  
+                          }
+                          
                         }else{
                            
                         }

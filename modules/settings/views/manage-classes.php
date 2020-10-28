@@ -3,7 +3,7 @@
   <header class="header" id="hone">
     <div class="container">
       <div class="logo-area">
-        <a href="https://edtools.io/apps/"><img src="assets/images/logo_black_medium.png" alt=""></a>
+        <a href="https://edtools.io/apps/"><img src="appci/assets/images/logo_black_medium.png" alt=""></a>
       </div>
       <nav>
         <ul>
@@ -31,7 +31,7 @@
       }
       ?>
       <span>Create a new class</span>
-      <form action="<?php echo base_url('settings/classes/manage'); ?>" method="POST">
+      <form action="<?php echo base_url('settings/Classes/manage'); ?>" method="POST">
         <div class="text-field" id="t1">
           <input class="in" type="text"  required name="class_name" placeholder="Enter class name">
         </div>

@@ -47,7 +47,7 @@ class Classes extends MY_Controller {
             $response['status'] = false;
             $response['msg'] = $msg;
             $this->session->set_flashdata('error',$msg);
-            redirect('settings/classes');
+            redirect('settings/Classes');
         }
 
         //insert in class collection
@@ -96,7 +96,7 @@ class Classes extends MY_Controller {
             $this->session->set_flashdata('error',$msg);
         }
         
-        redirect('settings/classes');
+        redirect('settings/Classes');
 
     }
 
@@ -254,7 +254,7 @@ class Classes extends MY_Controller {
             $response['status'] = true;
             $response['msg'] = $msg;
             $this->session->set_flashdata('error',$msg);
-            redirect('classes');
+            redirect('Classes');
         }else{
 
             //turned all classes standard = 0
@@ -282,7 +282,7 @@ class Classes extends MY_Controller {
                 $response['msg'] = $msg;
                 $this->session->set_flashdata('error',$msg);
             }
-            redirect('settings/classes');
+            redirect('settings/Classes');
         }
     }
 
@@ -386,7 +386,7 @@ class Classes extends MY_Controller {
             $this->session->set_flashdata('error',$msg);
         }
 
-        $redirect_url = "settings/classes/settings/".$this->input->post('id');
+        $redirect_url = "settings/Classes/settings/".$this->input->post('id');
         redirect($redirect_url);
 
        

@@ -12,18 +12,18 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-   <link rel="stylesheet" type="text/css" href="assets/components/tooltipify/lib/tooltipify.min.css">
-  <link href="assets/css/style.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="appci/assets/components/tooltipify/lib/tooltipify.min.css">
+  <link href="appci/assets/css/style.css" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="assets/components/toastr/toastr.css">
-  <link rel="stylesheet" type="text/css" href="assets/components/jquery-confirm/jquery-confirm.min.css">
+  <link rel="stylesheet" type="text/css" href="appci/assets/components/toastr/toastr.css">
+  <link rel="stylesheet" type="text/css" href="appci/assets/components/jquery-confirm/jquery-confirm.min.css">
 
   {styles}
 
-  <script type="text/javascript" src="assets/js/jquery.js"></script>
-  <script type="text/javascript" src="assets/components/toastr/toastr.min.js"></script>
-  <script type="text/javascript" src="assets/components/jquery-confirm/jquery-confirm.min.js"></script>
-  <script type="text/javascript" src="assets/components/tooltipify/lib/jquery-tooltipify.min.js"></script>
+  <script type="text/javascript" src="appci/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="appci/assets/components/toastr/toastr.min.js"></script>
+  <script type="text/javascript" src="appci/assets/components/jquery-confirm/jquery-confirm.min.js"></script>
+  <script type="text/javascript" src="appci/assets/components/tooltipify/lib/jquery-tooltipify.min.js"></script>
   <script type="text/javascript">
         
         function toasterOptions() {

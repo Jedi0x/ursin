@@ -78,12 +78,12 @@ class _Layout{
             }
             if (!empty($CI->scripts) && count($CI->scripts) > 0) {  // scripts
                 foreach ($CI->scripts as $script) {
-                    $scripts .= "<script type='text/javascript' src='assets/js/" . $script . ".js'></script>";
+                    $scripts .= "<script type='text/javascript' src='appci/assets/js/" . $script . ".js'></script>";
                 }
             }
             if (!empty($CI->styles) && count($CI->styles) > 0) {   // styles
                 foreach ($CI->styles as $style) {
-                    $styles .= "<link rel='stylesheet' type='text/css' href='assets/css/" . $style . ".css' />";
+                    $styles .= "<link rel='stylesheet' type='text/css' href='appci/assets/css/" . $style . ".css' />";
                 }
             }
 

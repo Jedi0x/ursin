@@ -3,6 +3,7 @@
 $(document).on('click', '.delete-message', function(e){
   var id = $(this).attr('data-id');
   var key = $(this).attr('data-key');
+  var check = $(this).attr('data-check');
   $.confirm({
     title: 'Delete Message',
     content: 'Do you really want to delete this message permanently?',
@@ -16,13 +17,11 @@ $(document).on('click', '.delete-message', function(e){
         $.ajax({
           type: "POST",
           url: base_url+'entries/Messages/delete',
-          data:{id:id,key:key},
+          data:{id:id,key:key,check:check},
           dataType:'json',
-          success: function(data)
-          {
-            if(data.status){
-              location.reload();
-            }
+          success: function(res)
+          {   toastr.success("Successfully Deleted");  
+              $('#messagebox').html(res.data);     
           }
         });
       },
@@ -35,6 +34,7 @@ $(document).on('click', '.delete-message', function(e){
 $(document).on('click', '.delete-exam', function(e){
   var id = $(this).attr('data-id');
   var key = $(this).attr('data-key');
+  var check = $(this).attr('data-check');
   $.confirm({
     title: 'Delete Exam',
     content: 'Do you want to delete this exam definitely?',
@@ -48,13 +48,11 @@ $(document).on('click', '.delete-exam', function(e){
         $.ajax({
           type: "POST",
           url: base_url+'entries/Exams/delete',
-          data:{id:id,key:key},
+          data:{id:id,key:key,check:check},
           dataType:'json',
-          success: function(data)
+          success: function(res)
           {
-            if(data.status){
-              location.reload();
-            }
+            $('#exambox').html(res.data);
           }
         });
       },
@@ -67,6 +65,7 @@ $(document).on('click', '.delete-exam', function(e){
 $(document).on('click', '.delete-calendar', function(e){
   var id = $(this).attr('data-id');
   var key = $(this).attr('data-key');
+   var check = $(this).attr('data-check');
   $.confirm({
     title: 'Delete Calendar',
     content: 'Do you want to delete this event definitely?',
@@ -80,13 +79,11 @@ $(document).on('click', '.delete-calendar', function(e){
         $.ajax({
           type: "POST",
           url: base_url+'entries/Calendar/delete',
-          data:{id:id,key:key},
+          data:{id:id,key:key,check:check},
           dataType:'json',
-          success: function(data)
+          success: function(res)
           {
-            if(data.status){
-              location.reload();
-            }
+             $('#calendarbox').html(res.data);
           }
         });
       },
@@ -98,8 +95,9 @@ $(document).on('click', '.delete-calendar', function(e){
 $(document).on('click', '.delete-homework', function(e){
   var id = $(this).attr('data-id');
   var key = $(this).attr('data-key');
+   var check = $(this).attr('data-check');
   $.confirm({
-    title: 'Delete Calendar',
+    title: 'Delete Homework',
     content: 'Do you want to delete this homework definitely?',
     icon: 'fa fa-trash',
     theme: 'supervan',
@@ -111,13 +109,11 @@ $(document).on('click', '.delete-homework', function(e){
         $.ajax({
           type: "POST",
           url: base_url+'entries/Homework/delete',
-          data:{id:id,key:key},
+          data:{id:id,key:key,check:check},
           dataType:'json',
-          success: function(data)
+          success: function(res)
           {
-            if(data.status){
-              location.reload();
-            }
+            $('#homeworkbox').html(res.data);
           }
         });
       },
@@ -131,6 +127,7 @@ $(document).on('click', '.delete-links', function(e){
 
   var id = $(this).attr('data-id');
   var key = $(this).attr('data-key');
+  var check = $(this).attr('data-check');
   $.confirm({
     title: 'Delete Links',
     content: 'Do you want to delete this weblink definitely?',
@@ -144,13 +141,11 @@ $(document).on('click', '.delete-links', function(e){
         $.ajax({
           type: "POST",
           url: base_url+'entries/Link/delete',
-          data:{id:id,key:key},
+          data:{id:id,key:key,check:check},
           dataType:'json',
-          success: function(data)
+          success: function(res)
           {
-            if(data.status){
-              location.reload();
-            }
+            $('#linkbox').html(res.data);
           }
         });
       },
@@ -161,8 +156,8 @@ $(document).on('click', '.delete-links', function(e){
 
 function load_alldata_teacher(value){
                   
-
-                   var clsid = value;
+      if($("#checkboxconnectcls").prop("checked")  == true){
+             var clsid = value;
                    $.ajax({
                     method:'post',
                     url: base_url+'entries/Messages/get_all_teacher_data',
@@ -177,12 +172,31 @@ function load_alldata_teacher(value){
                       }
                      
                     }
-                  });
-
+            });
+        }
+        else if($("#checkboxconnectcls").prop("checked") == false){
+          var clsid = value;
+                   $.ajax({
+                    method:'post',
+                    url: base_url+'entries/Messages/get_messages_data',
+                    data:{class_id:clsid},
+                    dataType:'json',
+                    success:function(res){
+                      if(res.status){
+                        
+                        $('#messagebox').html(res.data);
+                      }else{
+                         
+                      }
+                     
+                    }
+            });
+        }
 }
 
 
 function load_alldata_exams(value){
+  if($("#examncheckbox_teachers").prop("checked")  == true){
        var clsid = value;
        $.ajax({
         method:'post',
@@ -191,7 +205,6 @@ function load_alldata_exams(value){
         dataType:'json',
         success:function(res){
           if(res.status){
-            
             $('#exambox').html(res.data);
           }else{
              
@@ -199,11 +212,29 @@ function load_alldata_exams(value){
          
         }
       });
+  }else if($("#examncheckbox_teachers").prop("checked")  == false){
+       var clsid = value;
+       $.ajax({
+        method:'post',
+        url: base_url+'entries/Exams/get_exams_data',
+        data:{class_id:clsid},
+        dataType:'json',
+        success:function(res){
+          if(res.status){
+            $('#exambox').html(res.data);
+          }else{
+             
+          }
+         
+        }
+      });
+  }
 
 }
 
 
 function load_alldata_calendar(value){
+if($("#calendarcheckbox_teacher").prop("checked")  == true){
        var clsid = value;
        $.ajax({
         method:'post',
@@ -220,10 +251,29 @@ function load_alldata_calendar(value){
          
         }
       });
+  }else if($("#calendarcheckbox_teacher").prop("checked")  == false){
+      var clsid = value;
+       $.ajax({
+        method:'post',
+        url: base_url+'entries/Calendar/get_calendar_data',
+        data:{class_id:clsid},
+        dataType:'json',
+        success:function(res){
+          if(res.status){
+            
+            $('#calendarbox').html(res.data);
+          }else{
+             
+          }
+         
+        }
+      });
+  }
 
 }
 
 function load_alldata_homework(value){
+  if($("#homeworkcheckbox_teacher").prop("checked")  == true){
        var clsid = value;
        $.ajax({
         method:'post',
@@ -240,6 +290,24 @@ function load_alldata_homework(value){
          
         }
       });
+  }else if($("#homeworkcheckbox_teacher").prop("checked")  == false){
+      var clsid = value;
+       $.ajax({
+        method:'post',
+        url: base_url+'entries/Homework/get_homework_data',
+        data:{class_id:clsid},
+        dataType:'json',
+        success:function(res){
+          if(res.status){
+            
+            $('#homeworkbox').html(res.data);
+          }else{
+             
+          }
+         
+        }
+      });
+  }
 
 }
 
@@ -256,7 +324,8 @@ function load_homework_data(){
         dataType:'json',
         success:function(res){
           if(res.status){
-            
+            var newUrl = base_url+"entries/Homework?classid="+clsid;
+            $("#enterhomework"). attr("href", newUrl);
             $('#show_homeworkbox').html(res.data);
           }else{
              
@@ -285,6 +354,7 @@ function load_connected_teacher(){
                 success:function(res){
                   if(res.status){
                     $('#show_homeworkbox').html(res.data);
+                    $('#texttooltip').html('Hide');
                   }
                  
                 }
@@ -293,12 +363,15 @@ function load_connected_teacher(){
           $('#btn_change_color').addClass("colorwhite");
           $('#btn_change_color').removeClass("colorgrn");
           $('#iconid').css("color", "green");
+          $('#texttooltip').html('Show');
           load_homework_data();
          }
 
 }
 
 function load_alldata_links(value){
+
+  if($("#linkcheckbox_teacher").prop("checked")  == true){
        var clsid = value;
        $.ajax({
         method:'post',
@@ -315,6 +388,24 @@ function load_alldata_links(value){
          
         }
       });
+  }else if($("#linkcheckbox_teacher").prop("checked")  == false){
+          var clsid = value;
+             $.ajax({
+              method:'post',
+              url: base_url+'entries/Link/get_link_data',
+              data:{class_id:clsid},
+              dataType:'json',
+              success:function(res){
+                if(res.status){
+                  
+                  $('#linkbox').html(res.data);
+                }else{
+                   
+                }
+               
+              }
+          });
+  }
 
 }
 
@@ -365,11 +456,18 @@ function checkvalidation_links(){
     toastr.error("Please select a class");
     return false;  
   }
-   if (!urlid.match(/^http?:/)) {
-          
-    toastr.error("Please start URLs with https://, http:// or www. Change entries that start with www by http://www");
+
+   var url = urlid.substring(0, 3);
+   if(url == 'www'){
+    return true;
+   }
+
+   if (!urlid.match(/^https?:/)) {
+    toastr.error("Please start URLs with https://, http:// or www.");
     return false;  
    }
+
+
   
 }
 
@@ -382,16 +480,35 @@ function changecolor(colorcode){
 
 
 
-function showmailcheckbox(value){
-  if(value == 2){
-    $("#idofmailcheckbox").show();
-  }else{
-    $("#idofmailcheckbox").hide();
-  }
+// function showmailcheckbox(value){
+//   alert(value);
+//   if(value == 2){
+//     $("#idofmailcheckbox").slideDown();
+//   }else{
+//     $("#idofmailcheckbox").slideUp();
+//   }
+
+// }
+
+function showmailcheckbox(thisvalue){
+       if($(thisvalue).prop("checked")  == true){
+            $("#idofmailcheckbox").slideDown();
+        }
+        else if($(thisvalue).prop("checked") == false){
+            $("#idofmailcheckbox").slideUp();
+        }
 
 }
 
+function show_otherchekbox(thisvalue){
+    if($(thisvalue).prop("checked")  == true){
+            $("#idofmailcheckbox").slideDown();
+        }
+        else if($(thisvalue).prop("checked") == false){
+            $("#idofmailcheckbox").slideUp();
+        }
 
+}
 
 /////////////////////////////  Absent //////////////////////
   
@@ -459,5 +576,9 @@ function showmailcheckbox(value){
            toastr.error("Please select a class");
         }
   }
+
+
+
+
 
 ///////////

@@ -17,7 +17,6 @@ class Showhomework extends MY_Controller{
 
         $class_where['array_teachers'] = $this->logged_in_teacher_id;
         $data['classes'] = $this->crud_model->get('class',$class_where);
-
 		$this->load->view('show_homework',$data);
 	}
 
@@ -94,14 +93,12 @@ class Showhomework extends MY_Controller{
 
         $connteddata = $firstcollectdata[0]['connectedclass'];
         foreach ($connteddata as $key => $value) {
-
         	$classid['_id'] = new MongoDB\BSON\ObjectID($value);
         	$othermessage = $this->crud_model->get('class',$classid);
+        	foreach ($othermessage[0]['homework4class'] as $key => $value1) {
         	
-        	foreach ($othermessage[0]['homework4class'] as $key => $value) {
-        	
-        		array_push($value, "othermessage");
-        		array_push($datacollect['mesagedata'], $value);
+        		//array_push($value1, "othermessage");
+        		array_push($datacollect['mesagedata'], $value1);
         	}
         }
        	

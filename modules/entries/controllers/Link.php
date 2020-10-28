@@ -17,13 +17,10 @@ class Link extends MY_Controller{
 
         $class_where['array_teachers'] = $this->logged_in_teacher_id;
         $data['classes'] = $this->crud_model->get('class',$class_where);
-        if($data['classes'][0]['show_tools'][2] == 1){
-
-        }else{
-            $data['showbanner'] = 'false';
+        
+        if(!empty($_GET)){
+            $data['selectclass'] = $_GET['classid'];
         }
-        
-        
 		$this->load->view('link',$data);
 	}
 
@@ -38,18 +35,22 @@ class Link extends MY_Controller{
                 $dataofarray['icon'] = $_POST['icon'];
                 $dataofarray['color'] = $_POST['color'];
                 
-                $dataofarray['teachers_name'] = $this->logged_in_teacher_id;
+                $dataofarray['teachers_name'] = get_teacher_name();
+                $dataofarray['teachers_id'] = $this->logged_in_teacher_id;
                 $pushColumn = 'links4class';
 
         if($_POST['publishforall'] == 'publish'){
+                $where_teacher_name['_id'] = new MongoDB\BSON\ObjectID($_POST['class_id']);
+                $get_teacher_name = $this->crud_model->get('class',$where_teacher_name);
 
                 $dataforall = $this->crud_model->get('class'); 
                 foreach ($dataforall as $key => $valueofcls) {
-
-                  if(count($valueofcls['links4class']) <= 100){
-                    $class_where['_id'] = new MongoDB\BSON\ObjectID($valueofcls['_id']);
-                    $class_id = $this->crud_model->push('class',$class_where,$pushColumn,array($dataofarray));
-                  }
+                 if($get_teacher_name[0]['teacher_name'] == $valueofcls['teacher_name']){
+                      if(count($valueofcls['links4class']) <= 100){
+                        $class_where['_id'] = new MongoDB\BSON\ObjectID($valueofcls['_id']);
+                        $class_id = $this->crud_model->push('class',$class_where,$pushColumn,array($dataofarray));
+                      }
+                }
 
                 }
                 $msg = 'Link successfully created for all classes';
@@ -83,8 +84,24 @@ class Link extends MY_Controller{
                 }
         }
 
-        redirect('entries/Link');
+        redirect('entries/Link?classid='.$_POST['class_id']);
     }
+
+    public function get_accessofclass($class_id){
+
+        $class_where['_id'] = new MongoDB\BSON\ObjectID($class_id);
+        $data['classes'] = $this->crud_model->get('class',$class_where);
+        $retnval = '';
+        
+        if($data['classes'][0]['show_tools'][2] == 1){
+             $retnval = '0';
+
+        }else{
+             $retnval = '1';
+        }
+       return $retnval;
+    }
+
 
 
     public function get_link_data(){
@@ -98,6 +115,7 @@ class Link extends MY_Controller{
         $datacollect['connectedclass'] = $firstcollectdata[0]['connectedclass'];
 
         $response['data'] = $this->load->view('content/link_table', $datacollect, TRUE);
+        $response['messageaccess'] = $this->get_accessofclass($_POST['class_id']);
         $response['status'] = TRUE;
         echo json_encode($response);
         exit();
@@ -114,7 +132,8 @@ class Link extends MY_Controller{
         $datacollect1['classname'] = $firstcollectdata[0]['class_name'];
         $datacollect1['idofclass'] = $firstcollectdata[0]['_id'];
         $datacollect1['connectedclass'] = $firstcollectdata[0]['connectedclass'];
-
+        $datacollect1['checkboxchecked'] = '1';
+        
         $connteddata = $firstcollectdata[0]['connectedclass'];
         foreach ($connteddata as $key => $value) {
 
@@ -141,15 +160,32 @@ class Link extends MY_Controller{
         $where['_id'] = new MongoDB\BSON\ObjectID($_POST['id']);
         $delete =  $this->crud_model->delete_indexof_array('class',$where,'links4class',$_POST['key']);
     	if($delete){
-            $msg = 'Link Successfully Deleted';
-            $response['status'] = true;
-            $response['msg'] = $msg;
-            $this->session->set_flashdata('success',$msg);
+            $class_where['_id'] = new MongoDB\BSON\ObjectID($_POST['id']);
+            $firstcollectdata = $this->crud_model->get('class',$class_where);   
+            $datacollect['mesagedata'] = $firstcollectdata[0]['links4class'];
+            $datacollect['classname'] = $firstcollectdata[0]['class_name'];
+            $datacollect['idofclass'] = $firstcollectdata[0]['_id'];
+            $datacollect['connectedclass'] = $firstcollectdata[0]['connectedclass'];
+
+            if($_POST['check'] == '1'){
+                $datacollect['checkboxchecked'] = '1';
+                $connteddata = $firstcollectdata[0]['connectedclass'];
+                foreach ($connteddata as $key => $value) {
+                    $classid['_id'] = new MongoDB\BSON\ObjectID($value);
+                    $othermessage = $this->crud_model->get('class',$classid);
+                    foreach ($othermessage[0]['links4class'] as $key => $value) {
+                    
+                        array_push($value, "othermessage");
+                        array_push($datacollect['mesagedata'], $value);
+                    }
+                }
+            }
+
+            $response['data'] = $this->load->view('content/link_table', $datacollect, TRUE);
+            $response['status'] = TRUE;
+            
         }else{
-            $msg = 'Something Went Wrong';
-            $response['status'] = false;
-            $response['msg'] = $msg;
-            $this->session->set_flashdata('error',$msg);
+            
         }
         echo json_encode($response);
         exit();

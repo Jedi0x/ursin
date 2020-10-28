@@ -20,7 +20,7 @@
 
 .message tr td:nth-child(3){
   float: right;
-  width: 15%;
+  width: 0%;
 }
 .message .delete{
   background: #dcc394;

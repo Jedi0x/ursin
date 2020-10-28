@@ -64,6 +64,14 @@ function get_teacher_id(){
 
 }
 
+function get_teacher_name(){
+	$CI =& get_instance();
+	$user = $CI->session->userdata("user_session");
+	$CI->load->model('crud_model');
+	$teacher = $CI->crud_model->get('teacher',array('teacher_id' => (int)$user['user_id']));
+	return $teacher[0]['teacher_full_name'];
+}
+
 
 function searchForValue($value, $array, $arrayValue) {
    foreach ($array as $key => $val) {
@@ -84,6 +92,8 @@ function get_user_name(){
 	return $user['login'];
 
 }
+
+
 
 function student_info($id)
 {	

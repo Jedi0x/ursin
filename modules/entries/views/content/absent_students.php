@@ -42,7 +42,7 @@
                 <ul class="flip-box  <?php echo $classnameofselected; ?>" data-studentid='<?php echo $studentdata['_id']; ?>' data-studentkey='<?php echo $endkeyofabsent; ?>'>
                   <li><span><?php if(@$flagicon == 1 || @$flagicon == 2){?><i class="fas fa-times"></i><?php }else{ ?> <i class="fas fa-check"></i> <?php } ?></span>
                   </li>
-                  <li><span><?php echo $studentdata['student_name']; ?></span></li>
+                  <li><span ><?php echo $studentdata['student_name']; ?></span></li>
                 </ul>
               </td>
           <?php endforeach; ?>

@@ -12,29 +12,29 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-   <link rel="stylesheet" type="text/css" href="assets/components/tooltipify/lib/tooltipify.min.css">
+   <link rel="stylesheet" type="text/css" href="appci/assets/components/tooltipify/lib/tooltipify.min.css">
 
 
-  <link rel="stylesheet" type="text/css" href="assets/components/toastr/toastr.css">
-  <link rel="stylesheet" type="text/css" href="assets/components/jquery-confirm/jquery-confirm.min.css">
+  <link rel="stylesheet" type="text/css" href="appci/assets/components/toastr/toastr.css">
+  <link rel="stylesheet" type="text/css" href="appci/assets/components/jquery-confirm/jquery-confirm.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/entries/main-style.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/entries/css/link-style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>appci/assets/entries/main-style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>appci/assets/entries/css/link-style.css">
 
-   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/entries/dist/fontawesome-5.11.2/css/all.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/entries/dist/iconpicker-1.5.0.css">
+   <link rel="stylesheet" href="<?php echo base_url(); ?>appci/assets/entries/dist/fontawesome-5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>appci/assets/entries/dist/iconpicker-1.5.0.css">
 
 
   {styles}
 
-  <script type="text/javascript" src="assets/js/jquery.js"></script>
-  <script type="text/javascript" src="assets/components/toastr/toastr.min.js"></script>
-  <script type="text/javascript" src="assets/components/jquery-confirm/jquery-confirm.min.js"></script>
-  <script type="text/javascript" src="assets/components/tooltipify/lib/jquery-tooltipify.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/entries/js/messages.js"></script>
+  <script type="text/javascript" src="appci/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="appci/assets/components/toastr/toastr.min.js"></script>
+  <script type="text/javascript" src="appci/assets/components/jquery-confirm/jquery-confirm.min.js"></script>
+  <script type="text/javascript" src="appci/assets/components/tooltipify/lib/jquery-tooltipify.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>appci/assets/entries/js/messages.js"></script>
   <script type="text/javascript">
         
         function toasterOptions() {
@@ -83,17 +83,17 @@
     </script>
     <?php } ?>
 
-    <script src="<?php echo base_url(); ?>assets/entries/js/links/selector.js"></script>
-    <script src="<?php echo base_url(); ?>assets/entries/js/typewriter.js"></script>
+    <script src="<?php echo base_url(); ?>appci/assets/entries/js/links/selector.js"></script>
+    <script src="<?php echo base_url(); ?>appci/assets/entries/js/typewriter.js"></script>
  
     <script src="https://cdn.jsdelivr.net/npm/notiflix/dist/AIO/notiflix-aio-1.9.1.min.js"></script>
    <!--  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>  -->
-    <script src="<?php echo base_url(); ?>assets/entries/dist/iconpicker-1.5.0.js"></script>
-    <script src="<?php echo base_url(); ?>assets/entries/dist/index-tooltip.js"></script>
+    <script src="<?php echo base_url(); ?>appci/assets/entries/dist/iconpicker-1.5.0.js"></script>
+    <script src="<?php echo base_url(); ?>appci/assets/entries/dist/index-tooltip.js"></script>
 
       <script type="text/javascript">
           IconPicker.Init({
-            jsonUrl: "<?php echo base_url(); ?>assets/entries/dist/iconpicker-1.5.0.json",
+            jsonUrl: "<?php echo base_url(); ?>appci/assets/entries/dist/iconpicker-1.5.0.json",
             searchPlaceholder: 'Search Icon',
             showAllButton: 'Show All',
             cancelButton: 'Cancel',

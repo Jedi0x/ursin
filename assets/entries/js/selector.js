@@ -41,6 +41,19 @@ var x, i, j, selElmnt, a, b, c;
                       if(res.status){
                         
                         $('#messagebox').html(res.data);
+                                  if(res.messageaccess == '1'){
+                                       $('#accesserror').show();  
+                                       $("#activelink").attr("href", "settings/Student/student/"+clsid);
+                                    }else{
+                                      $('#accesserror').hide();   
+                                    }
+                                    if(res.messagelimit != ''){
+                                      $('#limiterror').html(res.messagelimit);  
+                                      $('#limiterrorhide').hide();
+                                    }else{
+                                      $('#limiterror').html('');  
+                                      $('#limiterrorhide').show();
+                                    }
                       }else{
                          
                       }

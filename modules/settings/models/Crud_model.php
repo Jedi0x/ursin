@@ -278,6 +278,32 @@ class Crud_model extends CI_Model{
 
 	}
 
+	public function unset_column($collection,$where,$pullColumn,$indexs)
+	{	
+		try {
+			$this->mongo_db2->where($where);
+			for ($i=0; $i < sizeof($indexs); $i++) { 
+				//debug($indexs[$i]);
+				$this->mongo_db2->unset($pullColumn.'.'.$indexs[$i]);
+			}
+			//exit();
+			$this->mongo_db2->update($collection);
+			$update = $this->mongo_db2->pullAll($pullColumn,[null])->where($where)->update($collection);
+			return $update;
+
+		} catch (MongoDB\Driver\Exception\Exception $e) {
+
+			$filename = basename(__FILE__);
+
+			echo "The $filename script has experienced an error.\n"; 
+			echo "It failed with the following exception:\n";
+			echo "Exception:", $e->getMessage(), "\n";
+			echo "In file:", $e->getFile(), "\n";
+			echo "On line:", $e->getLine(), "\n";       
+		}
+	}
+
+
 
 
 

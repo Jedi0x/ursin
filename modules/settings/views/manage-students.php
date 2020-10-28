@@ -7,7 +7,7 @@
   <header class="header" id="htwo">
     <div class="container">
       <div class="logo-area">
-        <a href="https://edtools.io/apps/"><img src="assets/images/logo_black_medium.png" alt=""></a>
+        <a href="https://edtools.io/apps/"><img src="appci/assets/images/logo_black_medium.png" alt=""></a>
       </div>
       <nav>
         <ul>
@@ -25,7 +25,7 @@
    <section class="dashboard" style="text-align: center;">
     <div class="container">
       <span>Please create a class first</span><br>
-     <a href="<?php echo base_url('Classes'); ?>">Click Here.</a>
+     <a href="<?php echo base_url('settings/Classes'); ?>">Click Here.</a>
     </div>
   </section>
     
@@ -106,7 +106,7 @@
   <section class="code-list">
     <div class="container">
       <span>Codelist</span>
-      <form action="<?php echo base_url('settings/student/print_codelist'); ?>" method="POST" target="_blank">
+      <form action="<?php echo base_url('settings/Student/print_codelist'); ?>" method="POST" target="_blank">
 
         <h3>Give the students their login codes.</h3>
 
@@ -176,7 +176,7 @@
               </div>
   
               <div class="button">
-                <a href="<?php echo base_url('settings/student/setting/').$student['student_id']; ?>">Settings</a>
+                <a href="<?php echo base_url('settings/Student/setting/').$student['student_id']; ?>">Settings</a>
               </div>
             </div>
 

@@ -3,13 +3,13 @@
   <header class="header" id="hthree">
     <div class="container">
       <div class="logo-area">
-        <a href="https://edtools.io/apps/"><img src="assets/images/logo_black_medium.png" alt=""></a>
+        <a href="https://edtools.io/apps/"><img src="appci/assets/images/logo_black_medium.png" alt=""></a>
       </div>
       <nav>
         <ul>
           <li><a href="<?php echo base_url('settings/Classes'); ?>">Manage Classes</a></li>
           <li><a href="<?php echo base_url('settings/Student'); ?>">Manage Students</a></li>
-          <li class="active"><a href="<?php echo base_url('student/Student'); ?>">Students Page</a></li>
+          <li class="active"><a href="<?php echo base_url('settings/student/Student'); ?>">Students Page</a></li>
         </ul>
       </nav>
       <div class="help-icon">
@@ -22,7 +22,7 @@
    <section class="dashboard" style="text-align: center;">
     <div class="container">
       <span>Please create a class first</span><br>
-     <a href="<?php echo base_url('Classes'); ?>">Click Here.</a>
+     <a href="<?php echo base_url('settings/Classes'); ?>">Click Here.</a>
     </div>
   </section>
     
@@ -46,12 +46,33 @@
       <span>Select main class:</span>
      
         <div class="drb">
-          <select name="standart_class" required>
-            <option value="">Select Class</option>
-            <?php foreach ($classes as $class) { ?>
-            <option <?php if($class['standard'] == 1){ echo "selected"; } ?> value="<?=$class['_id']?>"><?=$class['class_name']?></option>
+
+          <?php if(!isset($selectclass)){?>
+                  <select name="standart_class" required>
+                    <option value="">Select Class</option>
+                    <?php foreach ($classes as $class) { ?>
+                    <option <?php if($class['standard'] == 1){ echo "selected"; } ?> value="<?=$class['_id']?>"><?=$class['class_name']?></option>
+                    <?php } ?>
+                  </select> 
+           <?php }else{ ?>
+             <select name="standart_class" required>
+                  <option value="">Select Class</option>
+                  <?php foreach ($classes as $class) { ?>
+                  <option <?php if($selectclass == $class['_id']){ echo "selected"; } ?> value="<?=$class['_id']?>"><?=$class['class_name']?></option>
+                  <?php } ?>
+                </select>
+            <script type="text/javascript">
+               var class_id = $("[name='standart_class']").val();
+                  $.ajax({
+                    type: "POST",
+                    url: base_url+'settings/Classes/options',
+                    data:{class_id:class_id},
+                    success: function(res){
+                      $("#option-panel").html(res);
+                    }
+                  });
+            </script>
             <?php } ?>
-          </select>
         </div>
 
     </div>
@@ -64,17 +85,17 @@
 
 
        $nameArray = array(
-        array("name"=>"Overdue Task","img"=>"assets/images/icon_tasks.png"),
-        array("name"=>"Messages to Class","img"=>"assets/images/icon_messages.png"),
-        array("name"=>"Weblink","img"=>"assets/images/icon-url.png"),
-        array("name"=>"Exam Dates","img"=>"assets/images/icon_exam.png"),
-        array("name"=>"Homework","img"=>"assets/images/icon-collection.png","sub"=>1),
-        array("name"=>"Calendar","img"=>"assets/images/icon-calendar.png"),
-        array("name"=>"Checklist","img"=>"assets/images/icon_checklist.png"),
-        array("name"=>"Solution Keys","img"=>"assets/images/icon_solution.png"),
-        array("name"=>"Sick Notifications","img"=>"assets/images/icon_ill.png"),
-        array("name"=>"Library","img"=>"assets/images/icon-library.png"),
-        array("name"=>"Files","img"=>"assets/images/icon-file.png")
+        array("name"=>"Overdue Task","img"=>"appci/assets/images/icon_tasks.png"),
+        array("name"=>"Messages to Class","img"=>"appci/assets/images/icon_messages.png"),
+        array("name"=>"Weblink","img"=>"appci/assets/images/icon-url.png"),
+        array("name"=>"Exam Dates","img"=>"appci/assets/images/icon_exam.png"),
+        array("name"=>"Homework","img"=>"appci/assets/images/icon-collection.png","sub"=>1),
+        array("name"=>"Calendar","img"=>"appci/assets/images/icon-calendar.png"),
+        array("name"=>"Checklist","img"=>"appci/assets/images/icon_checklist.png"),
+        array("name"=>"Solution Keys","img"=>"appci/assets/images/icon_solution.png"),
+        array("name"=>"Sick Notifications","img"=>"appci/assets/images/icon_ill.png"),
+        array("name"=>"Library","img"=>"appci/assets/images/icon-library.png"),
+        array("name"=>"Files","img"=>"appci/assets/images/icon-file.png")
       );
 
        $options_array = array();
@@ -120,7 +141,7 @@
 
               ?>
               <div class="dash dash-second" style="display: <?=$display ?>">
-                <div class="debo-icon"><img src="assets/images/icon-collection.png" alt=""></div>
+                <div class="debo-icon"><img src="appci/assets/images/icon-collection.png" alt=""></div>
                 <div class="ht">
                   <h4 class="t">Homework for absent students</h4>
                 </div>
